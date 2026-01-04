@@ -62,17 +62,13 @@ sealed interface MediaSessionUID {
                 if (str.length < 3) {
                     return null
                 }
-                return Tab(
-                    TabNode.fromString(str.substring(2 until str.length))
-                        ?: return null)
+                return Tab(TabNode.fromString(str.substring(2 until str.length)) ?: return null)
             }
             if (str.startsWith("mi")) {
                 if (str.length < 3) {
                     return null
                 }
-                return SingleItem(
-                    UID.fromString(str.substring(2 until str.length)) ?: return null
-                )
+                return SingleItem(UID.fromString(str.substring(2 until str.length)) ?: return null)
             }
             val parts = str.split(":", limit = 2)
             if (parts.size != 2) {

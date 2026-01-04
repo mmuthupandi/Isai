@@ -47,7 +47,8 @@ sealed class TabNode {
 
     data class Home(val type: MusicType) : TabNode() {
         override val id = "$ID/${type.intCode}"
-        override val microId: String = "t{${
+        override val microId: String =
+            "t{${
             when (type) {
                 MusicType.SONGS -> 's'
                 MusicType.ALBUMS -> 'a'
