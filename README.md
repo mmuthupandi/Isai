@@ -96,27 +96,20 @@ will only work on unix-based systems.
 
 #### Install Android Studio.
 
-Arch:
-
 ```bash
-yay -S android-studio
+pkg -S android-studio
 ```
 
 #### Configuring Android Studio:
 
 - Be sure to have NDK tools, version 28.2.13676358. You can search it on Languages & Frameworks > Android SDK.
-- Install Java-21
+- Install Java-21 with your system package manager
 
     ```bash
-    sudo pacman -S jdk21-openjdk
+    sudo pkg -S jdk21-openjdk
     ```
-    Set java version to jdk21-openjdk
+    Additionally: Set java version to jdk21-openjdk
 
-    Arch:
-
-    ```bash
-    sudo archlinux-java set java-21-openjdk    
-    ```
 - Run ./gradlew assembleDebug
 
 #### Connecting to your Android Device
@@ -141,36 +134,7 @@ You can connect your Mobile Phone through USB to run the app.
    ./adb devices
    ```
 
-#### Install a device (emulator)
-
-To run the application without a physical Android device, you can use an Emulator. To install it you need to: 
-
-Arch
-```bash
-yay -S android-sdk-platform-tools
-yay -S android-emulator
-```
-
-Install a version of an Android Phone:
-
-```bash
-cd ~/Android/Sdk/cmdline-tools/latest/bin
-./sdkmanager --install "system-images;android-33;google_apis;x86_64"
-```
-
-Run the emulator
-
-```bash
-cd ~/Android/Sdk/cmdline-tools/latest/bin
-./avdmanager create avd -n auxio-avd -k "system-images;android-33;google_apis;x86_64" --device "pixel"
-```
-
-```bash
-cd ~/Android/Sdk/cmdline-tools/latest/bin
-./sdkmanager "emulator"
-cd /home/porky/Android/Sdk/emulator
-./emulator -avd auxio-avd -netdelay none -netspeed full
-```
+Android Studio also offers virtual devices that come with this pre-configured.
 
 #### Install the app on the Android Phone
 To install the app on your physical device or emulator, run this command:
