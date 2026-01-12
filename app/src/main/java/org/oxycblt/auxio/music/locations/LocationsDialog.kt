@@ -303,11 +303,10 @@ class LocationsDialog : ViewBindingMaterialDialogFragment<DialogMusicLocationsBi
         val context = requireContext()
         val location = Location.Unopened.from(context, uri)
 
-        if (location != null) {
-            pendingLocationCallback?.invoke(location)
-        } else {
-            requireContext().showToast(R.string.err_bad_location)
+        if (location.path.volume == null) {
+            requireContext().showToast(R.string.err_weird_location)
         }
+        pendingLocationCallback?.invoke(location)
         pendingLocationCallback = null
     }
 

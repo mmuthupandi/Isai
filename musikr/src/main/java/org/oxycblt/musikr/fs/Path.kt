@@ -24,10 +24,11 @@ import java.io.File
 /**
  * An abstraction of an android file system path, including the volume and relative path.
  *
- * @param volume The volume that the path is on.
+ * @param volume The volume that the path is on. Might be null if the Path is not associated with a
+ *   standard SAF document URI.
  * @param components The components of the path of the file, relative to the root of the volume.
  */
-data class Path(val volume: Volume, val components: Components) {
+data class Path(val volume: Volume?, val components: Components) {
     /** The name of the file/directory. */
     val name: String?
         get() = components.name
@@ -51,7 +52,8 @@ data class Path(val volume: Volume, val components: Components) {
      *
      * @param context [Context] required to obtain human-readable strings.
      */
-    fun resolve(context: Context) = "${volume.resolveName(context)}/$components"
+    fun resolve(context: Context) =
+        volume?.let { "${volume.resolveName(context)}/$components" } ?: components.toString()
 }
 
 sealed interface Volume {
@@ -169,6 +171,8 @@ value class Components private constructor(val components: List<String>) {
          */
         fun parseWindows(path: String) =
             Components(path.trimSlashes().split('\\').filter { it.isNotEmpty() })
+
+        fun root() = Components(emptyList())
 
         private fun String.trimSlashes() = trimStart(File.separatorChar).trimEnd(File.separatorChar)
     }

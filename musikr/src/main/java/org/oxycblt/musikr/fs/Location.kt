@@ -60,11 +60,15 @@ sealed class Location(val uri: Uri, val path: Path) {
             }
 
         companion object {
-            fun from(context: Context, uri: Uri): Unopened? {
+            fun from(context: Context, uri: Uri): Unopened {
+                val path = getDocumentTreePath(context, uri) ?: Path(null, Components.root())
+                return Unopened(uri, path)
+            }
+
+            private fun getDocumentTreePath(context: Context, uri: Uri): Path? {
                 if (!DocumentsContract.isTreeUri(uri)) return null
                 val documentPathFactory = DocumentPathFactory.from(context)
-                val path = documentPathFactory.unpackDocumentTreeUri(uri) ?: return null
-                return Unopened(uri, path)
+                return documentPathFactory.unpackDocumentTreeUri(uri)
             }
         }
     }
