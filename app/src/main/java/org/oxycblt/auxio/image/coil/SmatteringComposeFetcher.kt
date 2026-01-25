@@ -28,6 +28,7 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
+import androidx.annotation.ColorInt
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.graphics.withRotation
@@ -66,6 +67,7 @@ data class SmatteringCoverCollection(
     val fanAngleDeg: Float,
     val tiltAngleDeg: Float,
     val zOrder: List<Int>,
+    @ColorInt val backgroundColor: Int,
 )
 
 class SmatteringComposeFetcher
@@ -113,6 +115,7 @@ private constructor(
                     cornerRadiusPx = cornerRadiusPx,
                     fanAngleDeg = data.fanAngleDeg,
                     tiltAngleDeg = data.tiltAngleDeg,
+                    backgroundColor = data.backgroundColor,
                     zOrder = data.zOrder.validatedZOrder(),
                 ),
             )
@@ -137,6 +140,7 @@ private constructor(
             val cornerRadiusPx: Float,
             val fanAngleDeg: Float,
             val tiltAngleDeg: Float,
+            @ColorInt val backgroundColor: Int,
             val zOrder: List<Int> = listOf(0, 1, 2, 3),
         )
 
@@ -148,11 +152,19 @@ private constructor(
             val result = createBitmap(config.outputSizePx, config.outputSizePx)
             val canvas = Canvas(result)
 
-            val clearPaint =
+            canvas.drawColor(config.backgroundColor)
+
+            val gapPaint =
                 Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                    xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+                    color = config.backgroundColor
+                    style = Paint.Style.FILL
                 }
-            val imagePaint = Paint(Paint.ANTI_ALIAS_FLAG)
+            val imagePaint =
+                Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    // Use the background color for the mask so anti-aliased edges blend
+                    // toward it, avoiding dark/light fringing artifacts
+                    color = config.backgroundColor
+                }
 
             val totalSize = config.outputSizePx.toFloat()
             val cardSize = totalSize * ComposeCoverDefaults.CARD_SIZE_PERCENT
@@ -242,7 +254,7 @@ private constructor(
                     }
 
                 canvas.withRotation(rotation, centerX, centerY) {
-                    drawPath(gapPath, clearPaint)
+                    drawPath(gapPath, gapPaint)
 
                     if (innerRect.width() > 0 && innerRect.height() > 0) {
                         val savedLayer = saveLayer(innerRect, null)
@@ -316,7 +328,7 @@ private constructor(
     class Keyer @Inject constructor() : CoilKeyer<SmatteringCoverCollection> {
         override fun key(data: SmatteringCoverCollection, options: Options): String {
             val config =
-                "${data.cornerRadiusRatio}.${data.fanAngleDeg}.${data.tiltAngleDeg}.${data.zOrder.joinToString(".")}"
+                "${data.cornerRadiusRatio}.${data.fanAngleDeg}.${data.tiltAngleDeg}.${data.zOrder.joinToString(".")}.${data.backgroundColor}"
             return "m:${data.covers.hashCode()}.${options.size.width}.${options.size.height}.$config"
         }
     }

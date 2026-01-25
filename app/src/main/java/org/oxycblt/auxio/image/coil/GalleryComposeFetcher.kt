@@ -28,6 +28,7 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
+import androidx.annotation.ColorInt
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
 import coil3.ImageLoader
@@ -61,6 +62,7 @@ data class GalleryCoverCollection(
     val covers: CoverCollection,
     val cornerRadiusRatio: Float,
     val zOrder: List<Int>,
+    @ColorInt val backgroundColor: Int,
 )
 
 class GalleryComposeFetcher
@@ -106,6 +108,7 @@ private constructor(
                     outputSizePx = outputSize,
                     gapWidthPx = outputSize * ComposeCoverDefaults.GAP_RATIO,
                     cornerRadiusPx = cornerRadiusPx,
+                    backgroundColor = data.backgroundColor,
                     zOrder = data.zOrder.validatedZOrder(),
                 ),
             )
@@ -128,6 +131,7 @@ private constructor(
             val outputSizePx: Int,
             val gapWidthPx: Float,
             val cornerRadiusPx: Float,
+            @ColorInt val backgroundColor: Int,
             val zOrder: List<Int> = listOf(0, 1, 2, 3),
         )
 
@@ -139,7 +143,19 @@ private constructor(
             val result = createBitmap(config.outputSizePx, config.outputSizePx)
             val canvas = Canvas(result)
 
-            val imagePaint = Paint(Paint.ANTI_ALIAS_FLAG)
+            canvas.drawColor(config.backgroundColor)
+
+            val gapPaint =
+                Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = config.backgroundColor
+                    style = Paint.Style.FILL
+                }
+            val imagePaint =
+                Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    // Use the background color for the mask so anti-aliased edges blend
+                    // toward it, avoiding dark/light fringing artifacts
+                    color = config.backgroundColor
+                }
 
             val totalSize = config.outputSizePx.toFloat()
             val cardSize = totalSize * ComposeCoverDefaults.CARD_SIZE_PERCENT
@@ -253,6 +269,8 @@ private constructor(
                     continue
                 }
 
+                canvas.drawPath(visiblePath, gapPaint)
+
                 if (tile.innerRect.width() > 0 && tile.innerRect.height() > 0) {
                     val clipSave = canvas.save()
                     canvas.clipPath(visiblePath)
@@ -305,7 +323,8 @@ private constructor(
 
     class Keyer @Inject constructor() : CoilKeyer<GalleryCoverCollection> {
         override fun key(data: GalleryCoverCollection, options: Options): String {
-            val config = "${data.cornerRadiusRatio}.${data.zOrder.joinToString(".")}"
+            val config =
+                "${data.cornerRadiusRatio}.${data.zOrder.joinToString(".")}.${data.backgroundColor}"
             return "g:${data.covers.hashCode()}.${options.size.width}.${options.size.height}.$config"
         }
     }

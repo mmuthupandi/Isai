@@ -398,6 +398,7 @@ constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr
                 coverCollectionFanAngle(uidSeed),
                 coverCollectionTiltAngle(uidSeed),
                 coverCollectionZOrder(uidSeed),
+                coverCollectionBackgroundColor(),
             ),
             context.getString(R.string.desc_artist_image, artist.name),
             R.drawable.ic_artist_24,
@@ -417,7 +418,8 @@ constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr
             GalleryCoverCollection(
                 genre.covers,
                 coverCollectionCornerRatio(),
-                coverCollectionZOrder(genre.uid.hashCode()),
+                coverCollectionZOrder(genre.uid.toString().hashCode()),
+                coverCollectionBackgroundColor(),
             ),
             context.getString(R.string.desc_genre_image, genre.name),
             R.drawable.ic_genre_24,
@@ -435,7 +437,8 @@ constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr
             StackCoverCollection(
                 playlist.covers,
                 coverCollectionCornerRatio(),
-                coverCollectionZOrder(playlist.uid.hashCode()),
+                coverCollectionZOrder(playlist.uid.toString().hashCode()),
+                coverCollectionBackgroundColor(),
             ),
             context.getString(R.string.desc_playlist_image, playlist.name),
             R.drawable.ic_playlist_24,
@@ -517,6 +520,9 @@ constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr
         val random = Random(uidSeed.toLong())
         return random.nextFloat() * 20f - 10f // -10 to +10 degrees
     }
+
+    private fun coverCollectionBackgroundColor(): Int =
+        context.getColorCompat(R.color.sel_cover_bg).defaultColor
 
     private fun resolveCornerBounds(): RectF? {
         val widthPx = resolveSizePx(width, measuredWidth, layoutParams?.width)
