@@ -246,7 +246,6 @@
     <string name="set_lib_tabs_desc">Change visibility and order of library tabs</string>
     <!-- Skip to next (song) -->
     <string name="set_bar_action">Custom playback bar action</string>
-    <string name="set_notif_action">Custom notification action</string>
     <string name="set_action_mode_next">Skip to next</string>
     <string name="set_action_mode_repeat">Repeat mode</string>
     <string name="set_behavior">Behavior</string>
@@ -260,6 +259,8 @@
     <string name="set_play_song_by_itself">Play song by itself</string>
     <string name="set_keep_shuffle">Remember shuffle</string>
     <string name="set_keep_shuffle_desc">Keep shuffle on when playing a new song</string>
+    <string name="set_task_exit">Always exit on close</string>
+    <string name="set_task_exit_desc">Stop playback when removed from recents, even if playing</string>
 
     <string name="set_content">Content</string>
     <string name="set_content_desc">Control how music and images are loaded</string>

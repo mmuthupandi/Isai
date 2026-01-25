@@ -18,25 +18,35 @@
  
 package org.oxycblt.auxio.playback.service
 
+import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.support.v4.media.session.MediaSessionCompat
 import javax.inject.Inject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.oxycblt.auxio.AuxioService.Companion.INTENT_KEY_START_ID
 import org.oxycblt.auxio.ForegroundListener
 import org.oxycblt.auxio.ForegroundServiceNotification
 import org.oxycblt.auxio.IntegerTable
+import org.oxycblt.auxio.playback.PlaybackSettings
 import org.oxycblt.auxio.playback.state.DeferredPlayback
 import org.oxycblt.auxio.playback.state.PlaybackStateManager
+import org.oxycblt.auxio.playback.state.Progression
 import org.oxycblt.auxio.widgets.WidgetComponent
+import org.oxycblt.musikr.MusicParent
+import org.oxycblt.musikr.Song
 import timber.log.Timber as L
 
 class PlaybackServiceFragment
 private constructor(
-    context: Context,
+    private val context: Context,
     private val foregroundListener: ForegroundListener,
     private val playbackManager: PlaybackStateManager,
+    private val playbackSettings: PlaybackSettings,
     exoHolderFactory: ExoPlaybackStateHolder.Factory,
     sessionHolderFactory: MediaSessionHolder.Factory,
     widgetComponentFactory: WidgetComponent.Factory,
@@ -46,6 +56,7 @@ private constructor(
     @Inject
     constructor(
         private val playbackManager: PlaybackStateManager,
+        private val playbackSettings: PlaybackSettings,
         private val exoHolderFactory: ExoPlaybackStateHolder.Factory,
         private val sessionHolderFactory: MediaSessionHolder.Factory,
         private val widgetComponentFactory: WidgetComponent.Factory,
@@ -56,6 +67,7 @@ private constructor(
                 context,
                 foregroundListener,
                 playbackManager,
+                playbackSettings,
                 exoHolderFactory,
                 sessionHolderFactory,
                 widgetComponentFactory,
@@ -64,10 +76,73 @@ private constructor(
     }
 
     private val waitJob = Job()
+    private val scope = CoroutineScope(Dispatchers.Main + waitJob)
+    private var autoStopJob: Job? = null
     private val exoHolder = exoHolderFactory.create()
     private val sessionHolder = sessionHolderFactory.create(context, foregroundListener)
     private val widgetComponent = widgetComponentFactory.create(context)
-    private val systemReceiver = systemReceiverFactory.create(context, widgetComponent)
+    private val activityManager =
+        context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+    private val systemReceiver =
+        systemReceiverFactory.create(
+            context,
+            widgetComponent,
+            onExitRequested = { handleExitRequest() },
+        )
+
+    // Tracks whether an intentional exit has been requested.
+    private var exitRequested = false
+
+    private fun isAppForegrounded(): Boolean {
+        val processes = activityManager.runningAppProcesses ?: return false
+        val pkg = context.packageName
+        val own = processes.find { it.processName == pkg } ?: return false
+        val imp = own.importance
+        val visible =
+            // IMPORTANCE_FOREGROUND (100): Process in foreground UI, user is interacting.
+            // IMPORTANCE_VISIBLE (200): Process visible, but not in immediate foreground.
+            imp == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND ||
+                imp == ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE
+        L.d("Importance: $imp, visible: $visible")
+        return visible
+    }
+
+    private fun handleExitRequest() {
+        val foregrounded = isAppForegrounded()
+        exitRequested = !foregrounded
+        L.d("Exit requested: foregrounded=$foregrounded, exitRequested=$exitRequested")
+        // possibly redundant?
+        // although endSession() should end up calling scheduleAutoStop() due to
+        // onProgressionChanged() override, we use it just to be safe, in case it is
+        // not called if the state was already paused.
+        scheduleAutoStop()
+        playbackManager.endSession()
+    }
+
+    private fun scheduleAutoStop() {
+        autoStopJob?.cancel()
+        autoStopJob =
+            scope.launch {
+                delay(AUTO_STOP_DELAY_MS)
+                L.d(
+                    "Auto-stop timer expired after ${AUTO_STOP_DELAY_MS / 60000} minutes of inactivity"
+                )
+                handleExitRequest()
+            }
+    }
+
+    private fun cancelAutoStop() {
+        autoStopJob?.cancel()
+        autoStopJob = null
+    }
+
+    private fun updateAutoStopTimer(isPlaying: Boolean) {
+        if (isPlaying) {
+            cancelAutoStop()
+        } else if (playbackManager.currentSong != null) {
+            scheduleAutoStop()
+        }
+    }
 
     // --- MEDIASESSION CALLBACKS ---
 
@@ -77,11 +152,16 @@ private constructor(
         widgetComponent.attach()
         systemReceiver.attach()
         playbackManager.addListener(this)
+        updateAutoStopTimer(playbackManager.progression.isPlaying)
         return sessionHolder.token
     }
 
     fun handleTaskRemoved() {
-        if (!playbackManager.progression.isPlaying) {
+        val shouldExit =
+            !playbackManager.progression.isPlaying || playbackSettings.exitOnTaskRemoval
+
+        if (shouldExit) {
+            exitRequested = true
             playbackManager.endSession()
         }
     }
@@ -128,7 +208,11 @@ private constructor(
     val notification: ForegroundServiceNotification?
         get() = if (exoHolder.sessionOngoing) sessionHolder.notification else null
 
+    val shouldStopService: Boolean
+        get() = exitRequested && !exoHolder.sessionOngoing
+
     fun release() {
+        autoStopJob?.cancel()
         waitJob.cancel()
         playbackManager.removeListener(this)
         systemReceiver.release()
@@ -137,7 +221,26 @@ private constructor(
         exoHolder.release()
     }
 
+    override fun onNewPlayback(
+        parent: MusicParent?,
+        queue: List<Song>,
+        index: Int,
+        isShuffled: Boolean,
+    ) {
+        exitRequested = false
+        cancelAutoStop()
+    }
+
+    override fun onProgressionChanged(progression: Progression) {
+        // Update timer whenever play/pause state changes
+        updateAutoStopTimer(progression.isPlaying)
+    }
+
     override fun onSessionEnded() {
         foregroundListener.updateForeground(ForegroundListener.Change.MEDIA_SESSION)
+    }
+
+    private companion object {
+        private const val AUTO_STOP_DELAY_MS = 30L * 60L * 1000L
     }
 }
