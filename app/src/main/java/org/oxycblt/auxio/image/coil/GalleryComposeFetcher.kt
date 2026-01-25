@@ -22,7 +22,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PorterDuff
@@ -56,8 +55,6 @@ import kotlinx.coroutines.withContext
 import okio.FileSystem
 import okio.buffer
 import okio.source
-import org.oxycblt.auxio.R
-import org.oxycblt.auxio.util.getColorCompat
 import org.oxycblt.musikr.covers.CoverCollection
 
 data class GalleryCoverCollection(
@@ -109,7 +106,6 @@ private constructor(
                     outputSizePx = outputSize,
                     gapWidthPx = outputSize * ComposeCoverDefaults.GAP_RATIO,
                     cornerRadiusPx = cornerRadiusPx,
-                    backgroundColor = context.getColorCompat(R.color.sel_cover_bg).defaultColor,
                     zOrder = data.zOrder.validatedZOrder(),
                 ),
             )
@@ -132,7 +128,6 @@ private constructor(
             val outputSizePx: Int,
             val gapWidthPx: Float,
             val cornerRadiusPx: Float,
-            val backgroundColor: Int = Color.parseColor("#0f111a"),
             val zOrder: List<Int> = listOf(0, 1, 2, 3),
         )
 
@@ -144,13 +139,6 @@ private constructor(
             val result = createBitmap(config.outputSizePx, config.outputSizePx)
             val canvas = Canvas(result)
 
-            canvas.drawColor(config.backgroundColor)
-
-            val gapPaint =
-                Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                    color = config.backgroundColor
-                    style = Paint.Style.FILL
-                }
             val imagePaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
             val totalSize = config.outputSizePx.toFloat()
@@ -264,8 +252,6 @@ private constructor(
                 if (visiblePath.isEmpty) {
                     continue
                 }
-
-                canvas.drawPath(visiblePath, gapPaint)
 
                 if (tile.innerRect.width() > 0 && tile.innerRect.height() > 0) {
                     val clipSave = canvas.save()

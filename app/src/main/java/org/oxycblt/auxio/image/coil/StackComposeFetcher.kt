@@ -30,7 +30,6 @@ import android.graphics.Rect
 import android.graphics.RectF
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
-import androidx.core.graphics.toColorInt
 import coil3.ImageLoader
 import coil3.asImage
 import coil3.decode.DataSource
@@ -56,8 +55,6 @@ import kotlinx.coroutines.withContext
 import okio.FileSystem
 import okio.buffer
 import okio.source
-import org.oxycblt.auxio.R
-import org.oxycblt.auxio.util.getColorCompat
 import org.oxycblt.musikr.covers.CoverCollection
 
 data class StackCoverCollection(
@@ -109,7 +106,6 @@ private constructor(
                     outputSizePx = outputSize,
                     gapWidthPx = outputSize * ComposeCoverDefaults.GAP_RATIO,
                     cornerRadiusPx = cornerRadiusPx,
-                    backgroundColor = context.getColorCompat(R.color.sel_cover_bg).defaultColor,
                     zOrder = data.zOrder.validatedZOrder(),
                 ),
             )
@@ -132,7 +128,6 @@ private constructor(
             val outputSizePx: Int,
             val gapWidthPx: Float,
             val cornerRadiusPx: Float,
-            val backgroundColor: Int = "#0f111a".toColorInt(),
             val zOrder: List<Int> = listOf(0, 1, 2, 3),
         )
 
@@ -144,12 +139,9 @@ private constructor(
             val result = createBitmap(config.outputSizePx, config.outputSizePx)
             val canvas = Canvas(result)
 
-            canvas.drawColor(config.backgroundColor)
-
-            val gapPaint =
+            val clearPaint =
                 Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                    color = config.backgroundColor
-                    style = Paint.Style.FILL
+                    xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
                 }
             val imagePaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
@@ -231,7 +223,7 @@ private constructor(
                                 Path.Direction.CW,
                             )
                         }
-                    canvas.drawPath(gapPath, gapPaint)
+                    canvas.drawPath(gapPath, clearPaint)
                 }
 
                 if (innerRect.width() > 0 && innerRect.height() > 0) {
