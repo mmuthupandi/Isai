@@ -43,7 +43,7 @@ import timber.log.Timber as L
 
 class PlaybackServiceFragment
 private constructor(
-    private val context: Context,
+    context: Context,
     private val foregroundListener: ForegroundListener,
     private val playbackManager: PlaybackStateManager,
     private val playbackSettings: PlaybackSettings,
@@ -81,43 +81,12 @@ private constructor(
     private val exoHolder = exoHolderFactory.create()
     private val sessionHolder = sessionHolderFactory.create(context, foregroundListener)
     private val widgetComponent = widgetComponentFactory.create(context)
-    private val activityManager =
-        context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
     private val systemReceiver =
         systemReceiverFactory.create(
             context,
             widgetComponent,
-            onExitRequested = { handleExitRequest() },
+            onExitRequested = { playbackManager.endSession() },
         )
-
-    // Tracks whether an intentional exit has been requested.
-    private var exitRequested = false
-
-    private fun isAppForegrounded(): Boolean {
-        val processes = activityManager.runningAppProcesses ?: return false
-        val pkg = context.packageName
-        val own = processes.find { it.processName == pkg } ?: return false
-        val imp = own.importance
-        val visible =
-            // IMPORTANCE_FOREGROUND (100): Process in foreground UI, user is interacting.
-            // IMPORTANCE_VISIBLE (200): Process visible, but not in immediate foreground.
-            imp == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND ||
-                imp == ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE
-        L.d("Importance: $imp, visible: $visible")
-        return visible
-    }
-
-    private fun handleExitRequest() {
-        val foregrounded = isAppForegrounded()
-        exitRequested = !foregrounded
-        L.d("Exit requested: foregrounded=$foregrounded, exitRequested=$exitRequested")
-        // possibly redundant?
-        // although endSession() should end up calling scheduleAutoStop() due to
-        // onProgressionChanged() override, we use it just to be safe, in case it is
-        // not called if the state was already paused.
-        scheduleAutoStop()
-        playbackManager.endSession()
-    }
 
     private fun scheduleAutoStop() {
         autoStopJob?.cancel()
@@ -127,7 +96,7 @@ private constructor(
                 L.d(
                     "Auto-stop timer expired after ${AUTO_STOP_DELAY_MS / 60000} minutes of inactivity"
                 )
-                handleExitRequest()
+                playbackManager.endSession()
             }
     }
 
@@ -139,7 +108,7 @@ private constructor(
     private fun updateAutoStopTimer(isPlaying: Boolean) {
         if (isPlaying) {
             cancelAutoStop()
-        } else if (playbackManager.currentSong != null) {
+        } else if (exoHolder.sessionOngoing) {
             scheduleAutoStop()
         }
     }
@@ -157,11 +126,7 @@ private constructor(
     }
 
     fun handleTaskRemoved() {
-        val shouldExit =
-            !playbackManager.progression.isPlaying || playbackSettings.exitOnTaskRemoval
-
-        if (shouldExit) {
-            exitRequested = true
+        if (playbackSettings.exitOnTaskRemoval) {
             playbackManager.endSession()
         }
     }
@@ -208,9 +173,6 @@ private constructor(
     val notification: ForegroundServiceNotification?
         get() = if (exoHolder.sessionOngoing) sessionHolder.notification else null
 
-    val shouldStopService: Boolean
-        get() = exitRequested && !exoHolder.sessionOngoing
-
     fun release() {
         autoStopJob?.cancel()
         waitJob.cancel()
@@ -227,7 +189,6 @@ private constructor(
         index: Int,
         isShuffled: Boolean,
     ) {
-        exitRequested = false
         cancelAutoStop()
     }
 
