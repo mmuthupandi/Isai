@@ -18,7 +18,6 @@
  
 package org.oxycblt.auxio.playback.service
 
-import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.support.v4.media.session.MediaSessionCompat
