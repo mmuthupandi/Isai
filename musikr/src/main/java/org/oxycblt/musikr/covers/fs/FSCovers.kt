@@ -145,7 +145,7 @@ class MutableFSCovers(private val context: Context) : MutableCovers<FDCover> {
     }
 }
 
-private data class FolderCoverImpl(private val context: Context, private val uri: Uri) : FDCover {
+private class FolderCoverImpl(private val context: Context, private val uri: Uri) : FDCover {
     override val id = PREFIX + uri.toString()
 
     // Implies that client will manage freeing the resources themselves.
@@ -157,4 +157,12 @@ private data class FolderCoverImpl(private val context: Context, private val uri
     @SuppressLint("Recycle")
     override suspend fun fd(): ParcelFileDescriptor? =
         withContext(Dispatchers.IO) { context.contentResolver.openFileDescriptor(uri, "r") }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is FolderCoverImpl) return false
+        return id == other.id
+    }
+
+    override fun hashCode(): Int = id.hashCode()
 }

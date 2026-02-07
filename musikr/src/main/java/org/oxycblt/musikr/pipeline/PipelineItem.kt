@@ -46,6 +46,8 @@ internal sealed interface Extracted : PipelineItem {
 
 internal data object InvalidSong : Extracted.Invalid
 
+internal data object NotAudio : Explored.Known, Extracted.Valid
+
 internal data class RawPlaylist(val file: PlaylistFile) : Explored.Known, Extracted.Valid
 
 internal data class RawSong(

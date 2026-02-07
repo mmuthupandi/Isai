@@ -19,7 +19,9 @@
 #include <jni.h>
 #include <string>
 #include "JInputStream.h"
+#include "JClassRef.h"
 #include "JMetadataBuilder.h"
+#include "JObjectRef.h"
 #include "util.h"
 
 #include "taglib/fileref.h"
@@ -233,6 +235,37 @@ bool dispatchAndParse(const std::string &name, TagLib::File *file,
     return false;
 }
 
+static jobject metadataResultSuccess(JNIEnv *env, jobject metadata) {
+    JClassRef jSuccessClass { env,
+            "org/oxycblt/musikr/metadata/MetadataResult$Success" };
+    jmethodID jInitMethod = jSuccessClass.method("<init>",
+            "(Lorg/oxycblt/musikr/metadata/Metadata;)V");
+    return env->NewObject(*jSuccessClass, jInitMethod, metadata);
+}
+
+static jobject metadataResultObject(JNIEnv *env, const char *classpath) {
+    JClassRef jObjectClass { env, classpath };
+    std::string signature = std::string("L") + classpath + ";";
+    jfieldID jInstanceField = env->GetStaticFieldID(*jObjectClass, "INSTANCE",
+            signature.c_str());
+    return env->GetStaticObjectField(*jObjectClass, jInstanceField);
+}
+
+static jobject metadataResultNoMetadata(JNIEnv *env) {
+    return metadataResultObject(env,
+            "org/oxycblt/musikr/metadata/MetadataResult$NoMetadata");
+}
+
+static jobject metadataResultNotAudio(JNIEnv *env) {
+    return metadataResultObject(env,
+            "org/oxycblt/musikr/metadata/MetadataResult$NotAudio");
+}
+
+static jobject metadataResultProviderFailed(JNIEnv *env) {
+    return metadataResultObject(env,
+            "org/oxycblt/musikr/metadata/MetadataResult$ProviderFailed");
+}
+
 extern "C" JNIEXPORT jobject JNICALL
 Java_org_oxycblt_musikr_metadata_TagLibJNI_openNative(JNIEnv *env,
         jobject /* this */,
@@ -263,7 +296,13 @@ Java_org_oxycblt_musikr_metadata_TagLibJNI_openNative(JNIEnv *env,
             }
         }
         if (fileToUse == nullptr) {
-            throw std::runtime_error("Invalid or unsupported file");
+            delete overriddenFile;
+            return metadataResultNotAudio(env);
+        }
+        if (fileToUse->audioProperties() == nullptr) {
+            LOGE("No audio properties for %s", name.c_str());
+            delete overriddenFile;
+            return metadataResultNoMetadata(env);
         }
         JMetadataBuilder jBuilder {env};
         jBuilder.setProperties(fileToUse->audioProperties());
@@ -271,14 +310,14 @@ Java_org_oxycblt_musikr_metadata_TagLibJNI_openNative(JNIEnv *env,
         if (!dispatchAndParse(name, fileToUse, jBuilder)) {
             LOGE("File format in %s is not supported by any parser.", name.c_str());
             delete overriddenFile;
-            return nullptr;
+            return metadataResultNotAudio(env);
         }
-        jobject result = jBuilder.build();
+        JObjectRef jMetadata {env, jBuilder.build()};
         delete overriddenFile;
-        return result;
+        return metadataResultSuccess(env, *jMetadata);
     } catch (std::exception &e) {
         LOGE("Unable to parse metadata in %s: %s", name.c_str(), e.what());
         delete overriddenFile;
-        return nullptr;
+        return metadataResultProviderFailed(env);
     }
 }

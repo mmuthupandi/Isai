@@ -59,9 +59,9 @@ private class EvaluateStepImpl(
             when (extracted) {
                 is RawSong -> builder.add(tagInterpreter.interpret(extracted))
                 is RawPlaylist -> builder.add(playlistInterpreter.interpret(extracted.file))
+                is NotAudio -> {}
                 is InvalidSong -> {}
             }
-            builder
         }
         val graph = builder.build()
 

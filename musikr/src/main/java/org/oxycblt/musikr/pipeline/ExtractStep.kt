@@ -24,13 +24,15 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import org.oxycblt.musikr.Config
-import org.oxycblt.musikr.cache.CachedSong
+import org.oxycblt.musikr.cache.Audio
+import org.oxycblt.musikr.cache.CachedFile
 import org.oxycblt.musikr.cache.MutableCache
 import org.oxycblt.musikr.covers.Cover
 import org.oxycblt.musikr.covers.CoverResult
 import org.oxycblt.musikr.covers.MutableCovers
 import org.oxycblt.musikr.metadata.Metadata
 import org.oxycblt.musikr.metadata.MetadataExtractor
+import org.oxycblt.musikr.metadata.MetadataResult
 import org.oxycblt.musikr.tag.parse.TagParser
 import org.oxycblt.musikr.util.mapParallel
 import org.oxycblt.musikr.util.merge
@@ -73,10 +75,16 @@ private class ExtractStepImpl(
                     is RawSong -> Finalized(item)
                     is RawPlaylist -> Finalized(item)
                     is NewSong -> {
-                        val metadata = metadataExtractor.extract(item.file)
-                        if (metadata != null) NeedsParsing(item, metadata)
-                        else Finalized(InvalidSong)
+                        when (val result = metadataExtractor.extract(item.file)) {
+                            is MetadataResult.Success ->
+                                result.metadata?.let { metadata -> NeedsParsing(item, metadata) }
+                                    ?: Finalized(InvalidSong)
+                            MetadataResult.NoMetadata -> Finalized(InvalidSong)
+                            MetadataResult.NotAudio -> Finalized(NotAudio)
+                            MetadataResult.ProviderFailed -> Finalized(InvalidSong)
+                        }
                     }
+                    is NotAudio -> Finalized(NotAudio)
                 }
             }
         val parsed = Channel<ParsedCachingItem>(Channel.UNLIMITED)
@@ -113,18 +121,18 @@ private class ExtractStepImpl(
             }
         val finalizedTask =
             scope.tryAsyncWith(extracted, Dispatchers.IO) {
-                val exclude = mutableListOf<CachedSong>()
+                val exclude = mutableListOf<CachedFile>()
                 for (item in parsed) {
                     val result =
                         when (item) {
                             is Finalized -> item
                             is NeedsCaching -> {
-                                cache.write(item.rawSong.toCachedSong())
+                                cache.write(item.rawSong.toCachedFile())
                                 Finalized(item.rawSong)
                             }
                         }
                     if (result.extracted is RawSong) {
-                        exclude.add(result.extracted.toCachedSong())
+                        exclude.add(result.extracted.toCachedFile())
                     }
                     it.send(result.extracted)
                 }
@@ -145,7 +153,8 @@ private class ExtractStepImpl(
 
     private data class Finalized(val extracted: Extracted) : ParsedExtractItem, ParsedCachingItem
 
-    private fun RawSong.toCachedSong() = CachedSong(file, properties, tags, cover?.id, addedMs)
+    private fun RawSong.toCachedFile() =
+        CachedFile(file, audio = Audio(properties, tags, cover?.id), addedMs)
 
     private companion object {
         const val PARALLELISM = 8
