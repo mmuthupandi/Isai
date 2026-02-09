@@ -22,7 +22,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.RecyclerView
-import org.oxycblt.auxio.R
 import org.oxycblt.auxio.databinding.DialogSortBinding
 import org.oxycblt.auxio.list.ClickableListListener
 import org.oxycblt.auxio.list.adapter.UpdateInstructions
@@ -30,8 +29,7 @@ import org.oxycblt.auxio.ui.ViewBindingBottomSheetDialogFragment
 import org.oxycblt.auxio.util.systemBarInsetsCompat
 
 abstract class SortDialog :
-    ViewBindingBottomSheetDialogFragment<DialogSortBinding>(),
-    ClickableListListener<Sort.Mode> {
+    ViewBindingBottomSheetDialogFragment<DialogSortBinding>(), ClickableListListener<Sort.Mode> {
     private val modeAdapter = SortModeAdapter(@Suppress("LeakingThis") this)
 
     abstract fun getInitialSort(): Sort?
@@ -56,12 +54,8 @@ abstract class SortDialog :
             applyChosenSort(requireNotNull(getCurrentSort()))
             dismiss()
         }
-        binding.sortDirectionAsc.setOnClickListener {
-            updateDirection(Sort.Direction.ASCENDING)
-        }
-        binding.sortDirectionDsc.setOnClickListener {
-            updateDirection(Sort.Direction.DESCENDING)
-        }
+        binding.sortDirectionAsc.setOnClickListener { updateDirection(Sort.Direction.ASCENDING) }
+        binding.sortDirectionDsc.setOnClickListener { updateDirection(Sort.Direction.DESCENDING) }
 
         // --- STATE SETUP ---
         modeAdapter.update(getModeChoices(), UpdateInstructions.Diff)
@@ -95,7 +89,9 @@ abstract class SortDialog :
         val binding = requireBinding()
         val initial = getInitialSort()
         val mode = modeAdapter.currentMode ?: return null
-        val direction = if (binding.sortDirectionAsc.isChecked) Sort.Direction.ASCENDING else Sort.Direction.DESCENDING
+        val direction =
+            if (binding.sortDirectionAsc.isChecked) Sort.Direction.ASCENDING
+            else Sort.Direction.DESCENDING
         return Sort(mode, direction)
     }
 }

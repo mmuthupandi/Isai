@@ -89,18 +89,8 @@ class ExportPlaylistDialog : ViewBindingMaterialDialogFragment<DialogPlaylistExp
                 findNavController().navigateUp()
             }
 
-        binding.exportRelativePaths.setOnClickListener {
-            // Enforce "selection required" behavior even if the config value doesn't change.
-            val current = pickerModel.currentExportConfig.value
-            updateExportConfig(current.copy(absolute = false))
-            pickerModel.setExportConfig(current.copy(absolute = false))
-        }
-        binding.exportAbsolutePaths.setOnClickListener {
-            // Enforce "selection required" behavior even if the config value doesn't change.
-            val current = pickerModel.currentExportConfig.value
-            updateExportConfig(current.copy(absolute = true))
-            pickerModel.setExportConfig(current.copy(absolute = true))
-        }
+        binding.exportRelativePaths.setOnClickListener { updatePathStyle(absolute = false) }
+        binding.exportAbsolutePaths.setOnClickListener { updatePathStyle(absolute = true) }
 
         binding.exportWindowsPaths.setOnClickListener { _ ->
             val current = pickerModel.currentExportConfig.value
@@ -138,6 +128,16 @@ class ExportPlaylistDialog : ViewBindingMaterialDialogFragment<DialogPlaylistExp
             L.d("No playlist to export, leaving")
             findNavController().navigateUp()
             return
+        }
+    }
+
+    private fun updatePathStyle(absolute: Boolean) {
+        // Keep the UI in a valid state even if the config doesn't change (no emission).
+        val current = pickerModel.currentExportConfig.value
+        val updated = current.copy(absolute = absolute)
+        updateExportConfig(updated)
+        if (updated != current) {
+            pickerModel.setExportConfig(updated)
         }
     }
 

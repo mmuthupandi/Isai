@@ -546,11 +546,8 @@ constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr
      * Since the error drawable must also share a view with an image, any kind of transform or tint
      * must occur within a custom dialog, which is implemented here.
      */
-    private class StyledDrawable(
-        context: Context,
-        inner: Drawable,
-        @Px val iconSize: Int?,
-    ) : Drawable() {
+    private class StyledDrawable(context: Context, inner: Drawable, @Px val iconSize: Int?) :
+        Drawable() {
         // Never tint a shared drawable instance. These icons are also used elsewhere (e.g. the
         // About screen), and tinting without mutation can leak the modified tint state across
         // views in inconsistent ways depending on drawable caching/inflation order.
