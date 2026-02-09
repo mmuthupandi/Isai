@@ -163,39 +163,17 @@ class LocationsDialog : ViewBindingMaterialDialogFragment<DialogMusicLocationsBi
             updateExtrasVisibility(binding)
         }
 
-        // Set up mode toggle listener
-        binding.folderModeGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
-            if (!isChecked) return@addOnButtonCheckedListener
-
-            when (checkedId) {
-                R.id.locations_mode_exclude -> {
-                    isFilePickerMode = true
-                    updateModeUI(binding)
-                    updateSaveButtonState()
-                }
-                R.id.locations_mode_include -> {
-                    isFilePickerMode = false
-                    updateModeUI(binding)
-                    updateSaveButtonState()
-                }
-            }
+        binding.locationsModeExclude.setOnClickListener {
+            updateLocationMode(binding, filePicker = true)
         }
-
-        // Set up exclude/include mode toggle listener for System Database mode
-        binding.locationsExcludeModeGroup.addOnButtonCheckedListener { group, checkedId, isChecked
-            ->
-            if (!isChecked) return@addOnButtonCheckedListener
-
-            when (checkedId) {
-                R.id.locations_exclude_mode_exclude -> {
-                    isIncludeMode = true
-                    updateExcludeModeUI(binding)
-                }
-                R.id.locations_exclude_mode_include -> {
-                    isIncludeMode = false
-                    updateExcludeModeUI(binding)
-                }
-            }
+        binding.locationsModeInclude.setOnClickListener {
+            updateLocationMode(binding, filePicker = false)
+        }
+        binding.locationsExcludeModeExclude.setOnClickListener {
+            updateFilterMode(binding, include = true)
+        }
+        binding.locationsExcludeModeInclude.setOnClickListener {
+            updateFilterMode(binding, include = false)
         }
 
         // Set up add folder buttons
@@ -239,12 +217,9 @@ class LocationsDialog : ViewBindingMaterialDialogFragment<DialogMusicLocationsBi
         // Load data for the initial mode
         loadModeData(binding)
 
-        // Set the initial toggle button selection
-        if (isFilePickerMode) {
-            binding.folderModeGroup.check(R.id.locations_mode_exclude)
-        } else {
-            binding.folderModeGroup.check(R.id.locations_mode_include)
-        }
+        // Set initial selection state (no group logic; we manage checked state ourselves)
+        binding.locationsModeExclude.isChecked = isFilePickerMode
+        binding.locationsModeInclude.isChecked = !isFilePickerMode
 
         // Check storage permission status
         hasStoragePermission = checkStoragePermission()
@@ -263,11 +238,28 @@ class LocationsDialog : ViewBindingMaterialDialogFragment<DialogMusicLocationsBi
             binding.locationsExcludeNonMusicSwitch.isChecked = query.excludeNonMusic
 
             isIncludeMode = query.mode == MediaStore.FilterMode.INCLUDE
-            binding.locationsExcludeModeGroup.check(
-                if (isIncludeMode) R.id.locations_exclude_mode_exclude
-                else R.id.locations_exclude_mode_include
-            )
+            binding.locationsExcludeModeExclude.isChecked = isIncludeMode
+            binding.locationsExcludeModeInclude.isChecked = !isIncludeMode
         }
+    }
+
+    private fun updateLocationMode(binding: DialogMusicLocationsBinding, filePicker: Boolean) {
+        // Enforce "selection required" behavior.
+        binding.locationsModeExclude.isChecked = filePicker
+        binding.locationsModeInclude.isChecked = !filePicker
+
+        isFilePickerMode = filePicker
+        updateModeUI(binding)
+        updateSaveButtonState()
+    }
+
+    private fun updateFilterMode(binding: DialogMusicLocationsBinding, include: Boolean) {
+        // Enforce "selection required" behavior.
+        binding.locationsExcludeModeExclude.isChecked = include
+        binding.locationsExcludeModeInclude.isChecked = !include
+
+        isIncludeMode = include
+        updateExcludeModeUI(binding)
     }
 
     override fun onStart() {

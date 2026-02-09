@@ -89,12 +89,17 @@ class ExportPlaylistDialog : ViewBindingMaterialDialogFragment<DialogPlaylistExp
                 findNavController().navigateUp()
             }
 
-        binding.exportPathsGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
-            if (!isChecked) return@addOnButtonCheckedListener
+        binding.exportRelativePaths.setOnClickListener {
+            // Enforce "selection required" behavior even if the config value doesn't change.
             val current = pickerModel.currentExportConfig.value
-            pickerModel.setExportConfig(
-                current.copy(absolute = checkedId == R.id.export_absolute_paths)
-            )
+            updateExportConfig(current.copy(absolute = false))
+            pickerModel.setExportConfig(current.copy(absolute = false))
+        }
+        binding.exportAbsolutePaths.setOnClickListener {
+            // Enforce "selection required" behavior even if the config value doesn't change.
+            val current = pickerModel.currentExportConfig.value
+            updateExportConfig(current.copy(absolute = true))
+            pickerModel.setExportConfig(current.copy(absolute = true))
         }
 
         binding.exportWindowsPaths.setOnClickListener { _ ->
@@ -138,13 +143,8 @@ class ExportPlaylistDialog : ViewBindingMaterialDialogFragment<DialogPlaylistExp
 
     private fun updateExportConfig(config: ExportConfig) {
         val binding = requireBinding()
-        binding.exportPathsGroup.check(
-            if (config.absolute) {
-                R.id.export_absolute_paths
-            } else {
-                R.id.export_relative_paths
-            }
-        )
+        binding.exportRelativePaths.isChecked = !config.absolute
+        binding.exportAbsolutePaths.isChecked = config.absolute
         if (config.absolute) {
             binding.exportRelativePaths.icon = null
             binding.exportAbsolutePaths.setIconResource(R.drawable.ic_check_24)
