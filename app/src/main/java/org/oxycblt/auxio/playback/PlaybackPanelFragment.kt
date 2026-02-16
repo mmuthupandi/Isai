@@ -43,6 +43,8 @@ import org.oxycblt.auxio.playback.ui.stepper.DisplayPortion
 import org.oxycblt.auxio.playback.ui.stepper.PlayerFastSeekOverlay
 import org.oxycblt.auxio.ui.ViewBindingFragment
 import org.oxycblt.auxio.util.collectImmediately
+import org.oxycblt.auxio.util.getDimen
+import org.oxycblt.auxio.util.getDimenPixels
 import org.oxycblt.auxio.util.showToast
 import org.oxycblt.auxio.util.systemBarInsetsCompat
 import org.oxycblt.musikr.MusicParent

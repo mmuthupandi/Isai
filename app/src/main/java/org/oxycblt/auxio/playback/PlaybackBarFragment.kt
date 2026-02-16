@@ -33,6 +33,7 @@ import org.oxycblt.auxio.ui.ViewBindingFragment
 import org.oxycblt.auxio.util.collectImmediately
 import org.oxycblt.auxio.util.getAttrColorCompat
 import org.oxycblt.auxio.util.getColorCompat
+import org.oxycblt.auxio.util.getDimenPixels
 import org.oxycblt.musikr.Song
 import timber.log.Timber as L
 
@@ -72,10 +73,6 @@ class PlaybackBarFragment : ViewBindingFragment<FragmentPlaybackBarBinding>() {
         // Set up actions
         binding.playbackPlayPause.setOnClickListener { playbackModel.togglePlaying() }
 
-        //        binding.playbackProgressBar.wavelength = 48
-        //        binding.playbackProgressBar.speed = 20
-        //        binding.playbackProgressBar.amplitude = 5
-
         // -- VIEWMODEL SETUP ---
         collectImmediately(playbackModel.song, ::updateSong)
         collectImmediately(playbackModel.isPlaying, ::updatePlaying)
@@ -110,7 +107,13 @@ class PlaybackBarFragment : ViewBindingFragment<FragmentPlaybackBarBinding>() {
     }
 
     private fun updatePlaying(isPlaying: Boolean) {
-        requireBinding().playbackPlayPause.isActivated = isPlaying
+        requireBinding().playbackPlayPause.isChecked = isPlaying
+        requireBinding().playbackProgressBar.apply {
+            val wavelength = context.getDimenPixels(R.dimen.progress_wavelength)
+            val amplitude = context.getDimenPixels(R.dimen.progress_amplitude)
+            val speed = context.getDimenPixels(R.dimen.progress_wave_speed)
+            setWaveEnabled(isPlaying, wavelength, amplitude, speed)
+        }
     }
 
     private fun updatePosition(positionDs: Long) {
