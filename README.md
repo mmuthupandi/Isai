@@ -2,27 +2,15 @@
 <h1 align="center"><b>Isai</b></h1>
 <h4 align="center">A simple, rational music player for Android.</h4>
 <p align="center">
-    <a href="https://github.com/muthupandi/Isai/releases/tag/v4.1.5">
-        <img alt="Latest Version" src="https://img.shields.io/static/v1?label=tag&message=v4.1.5&color=64B5F6&style=flat">
-    </a>
-    <a href="https://github.com/muthupandi/Isai/releases/">
-        <img alt="Releases" src="https://img.shields.io/github/downloads/Muthupandi/Isai/total.svg?color=4B95DE&style=flat">
+    <a href="https://github.com/mmuthupandi/Isai/releases">
+        <img alt="Releases" src="https://img.shields.io/github/v/release/mmuthupandi/Isai?color=4B95DE&style=flat">
     </a>
     <a href="https://www.gnu.org/licenses/gpl-3.0">
         <img src="https://img.shields.io/badge/license-GPL%20v3-2B6DBE.svg?style=flat">
     </a>
     <img alt="Minimum SDK Version" src="https://img.shields.io/badge/API-24%2B-1450A8?style=flat">
 </p>
-<h4 align="center"><a href="/CHANGELOG.md">Changelog</a> | <a href="https://github.com/Muthupandi/Isai/wiki">Wiki</a> | <a href="https://github.com/Muthupandi/Isai#Donate">Donate</a></h4>
-<p align="center">
-    <a href="https://f-droid.org/app/com.muthupandi.isai"><img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" width="250"></a>
-    <a href="https://accrescent.app/app/com.muthupandi.isai">
-        <img alt="Get it on Accrescent" src="https://accrescent.app/badges/get-it-on.png" width="250">
-    </a>
-</p>
-<p align="center">
-    <a href="https://hosted.weblate.org/engage/isai/"><img height=64 src="https://hosted.weblate.org/widgets/isai/-/strings/287x66-grey.png" alt="Translation status" /></a>
-</p>
+<h4 align="center"><a href="/CHANGELOG.md">Changelog</a></h4>
 
 ## About
 
@@ -74,29 +62,9 @@ precise/original dates, sort tags, and more
 - Services (`FOREGROUND_SERVICE`, `WAKE_LOCK`) to keep the music playing in the background
 - Notifications (`POST_NOTIFICATION`) to indicate ongoing playback and music loading
 
-## Donate
+## Support
 
-You can support Isai's development through [my Github Sponsors page](https://github.com/sponsors/Muthupandi). Get the ability to prioritize features and have your profile added to the README, Release Changelogs, and even the app itself!
-
-<h3 align="center">Legendary supporters:</h3>
-<p align="center">
-    <a href="https://github.com/bkkellyh"><img src="https://avatars.githubusercontent.com/u/248118457?v=4" width=250 /></a> 
-    <a href="ttps://github.com/gruntstumper"><img src="https://avatars.githubusercontent.com/u/308816080?v=4" width=125 /></a> 
-</p>
-<h3 align="center">
-    <a href="https://github.com/bkkellyh">@bkkellyh</a> - <i>$500!</i>, <a href="https://github.com/gruntstumper">@gruntstumper</a> - $100
-</h3>
-
-<hr />
-
-<p align="center"><b>$8/month supporters:</b></p>
-
-<p align="center">
-    <a href="https://github.com/uku3lig"><img src="https://avatars.githubusercontent.com/u/61147779?v=4" width=50 /></a>
-</p>
-<p align="center">
-    And **1** Private Sponsor!
-</p>
+If you like Isai, consider starring the repository on GitHub or contributing to the code! If you wish to support financially, you can do so through [GitHub Sponsors](https://github.com/sponsors/mmuthupandi).
 
 ## Building
 
@@ -172,11 +140,7 @@ cd ~/Android/Sdk/platform-tools
 
 ## Contributing
 
-Isai accepts most contributions as long as they follow the [Contribution Guidelines](/.github/CONTRIBUTING.md).
-
-However, feature additions and major UI changes are less likely to be accepted. See
-[Why Are These Features Missing?](https://github.com/Muthupandi/Isai/wiki/Why-Are-These-Features-Missing%3F)
-for more information.
+Contributions to Isai are always welcome! Whether it's bug reports, feature requests, or code contributions, please see our [Contribution Guidelines](/.github/CONTRIBUTING.md) for more details on how to get started.
 
 
 
@@ -192,4 +156,3 @@ published by the Free Software Foundation, either version 3 of the License, or
 
 As a fork of [Auxio](https://github.com/OxygenCobalt/Auxio), Isai retains all original copyright notices within the source code to comply with the GPL v3.0 license. All new modifications are released under the same license terms.
 
-More information can be found [here](https://github.com/Muthupandi/Isai/wiki/Licenses).
