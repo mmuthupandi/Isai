@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * RootPreferenceFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,11 +26,11 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.music.MusicViewModel
 import com.muthupandi.isai.settings.ui.WrappedDialogPreference
 import com.muthupandi.isai.util.navigateSafe
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Covers.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,9 +20,9 @@
 package com.muthupandi.musikr.covers
 
 import android.os.ParcelFileDescriptor
-import java.io.InputStream
 import com.muthupandi.musikr.fs.File
 import com.muthupandi.musikr.metadata.Metadata
+import java.io.InputStream
 
 /**
  * An immutable repository for cover information.

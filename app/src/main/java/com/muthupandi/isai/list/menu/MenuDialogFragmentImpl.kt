@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MenuDialogFragmentImpl.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,7 +23,6 @@ import android.view.MenuItem
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.DialogMenuBinding
 import com.muthupandi.isai.detail.DetailViewModel
@@ -41,6 +39,7 @@ import com.muthupandi.musikr.Artist
 import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * [MenuDialogFragment] implementation for a [Song].

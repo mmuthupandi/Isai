@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Isai.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,13 +24,13 @@ import android.content.Intent
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
-import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
 import com.muthupandi.isai.home.HomeSettings
 import com.muthupandi.isai.image.ImageSettings
 import com.muthupandi.isai.playback.PlaybackSettings
 import com.muthupandi.isai.ui.UISettings
 import com.muthupandi.isai.util.CopyleftNoticeTree
+import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 import timber.log.Timber
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SongListFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,8 +25,6 @@ import android.view.ViewGroup
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import dagger.hilt.android.AndroidEntryPoint
-import java.util.Calendar
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentHomeListBinding
 import com.muthupandi.isai.home.HomeViewModel
@@ -46,6 +43,8 @@ import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.Calendar
 
 /**
  * A [ListFragment] that shows a list of [Song]s.

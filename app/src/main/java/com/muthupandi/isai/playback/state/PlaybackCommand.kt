@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackCommand.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,7 +19,6 @@
  
 package com.muthupandi.isai.playback.state
 
-import javax.inject.Inject
 import com.muthupandi.isai.list.ListSettings
 import com.muthupandi.isai.list.sort.Sort
 import com.muthupandi.isai.music.MusicRepository
@@ -31,6 +29,7 @@ import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import javax.inject.Inject
 
 /**
  * A playback command that can be passed to [PlaybackStateManager] to start new playback.

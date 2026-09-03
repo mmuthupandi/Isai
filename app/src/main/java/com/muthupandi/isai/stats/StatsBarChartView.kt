@@ -1,3 +1,22 @@
+/*
+ * Copyright (c) 2026 Muthupandi (Isai Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
+ * StatsBarChartView.kt is part of Isai.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+ 
 package com.muthupandi.isai.stats
 
 import android.content.Context
@@ -6,28 +25,31 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.muthupandi.isai.R
 
-class StatsBarChartView @JvmOverloads constructor(
+class StatsBarChartView
+@JvmOverloads
+constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = 0,
 ) : View(context, attrs, defStyleAttr) {
 
-    private val barPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.FILL
-    }
-    
-    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        textSize = 32f
-        textAlign = Paint.Align.CENTER
-    }
+    private val barPaint =
+        Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.FILL
+        }
+
+    private val textPaint =
+        Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            textSize = 32f
+            textAlign = Paint.Align.CENTER
+        }
 
     private var data: List<Float> = emptyList()
     private var labels: List<String> = emptyList()
     private var maxDataValue: Float = 0f
-    
+
     // Bar rounding radius
     private val cornerRadius = 12f
 
@@ -44,7 +66,8 @@ class StatsBarChartView @JvmOverloads constructor(
         if (data.isEmpty()) return
 
         // Resolve colors
-        val primaryColor = context.getColor(android.R.color.system_accent1_500) // Fallback if no attr
+        val primaryColor =
+            context.getColor(android.R.color.system_accent1_500) // Fallback if no attr
         // Ideally we would resolve ?attr/colorPrimary and ?attr/colorOnSurfaceVariant
         // We'll use some default Material colors for simplicity if resolving fails.
 
@@ -62,12 +85,12 @@ class StatsBarChartView @JvmOverloads constructor(
         for (i in data.indices) {
             val value = data[i]
             val barHeight = if (maxDataValue > 0) (value / maxDataValue) * availableHeight else 0f
-            
+
             val left = i * (barWidth + spacing) + spacing / 2f
             val right = left + barWidth
             val top = availableHeight - barHeight
             val bottom = availableHeight
-            
+
             val rect = RectF(left, top, right, bottom)
             canvas.drawRoundRect(rect, cornerRadius, cornerRadius, barPaint)
 

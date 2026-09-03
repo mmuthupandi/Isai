@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * IsaiService.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -33,10 +32,10 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.ServiceCompat
 import androidx.media.MediaBrowserServiceCompat
 import androidx.media.utils.MediaConstants
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import com.muthupandi.isai.music.service.MusicServiceFragment
 import com.muthupandi.isai.playback.service.PlaybackServiceFragment
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import timber.log.Timber
 
 @AndroidEntryPoint

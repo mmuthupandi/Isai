@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * StyledSeekBar.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,10 +22,10 @@ package com.muthupandi.isai.playback.ui
 import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.slider.Slider
-import kotlin.math.max
 import com.muthupandi.isai.databinding.ViewSeekBarBinding
 import com.muthupandi.isai.playback.formatDurationDs
 import com.muthupandi.isai.util.inflater
+import kotlin.math.max
 import timber.log.Timber as L
 
 /**

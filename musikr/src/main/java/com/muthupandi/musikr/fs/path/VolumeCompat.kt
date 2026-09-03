@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * VolumeCompat.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,8 +27,8 @@ import android.os.Environment
 import android.os.storage.StorageManager
 import android.os.storage.StorageVolume
 import android.provider.MediaStore
-import java.lang.reflect.Method
 import com.muthupandi.musikr.util.lazyReflectedMethod
+import java.lang.reflect.Method
 
 // Largely derived from Material Files: https://github.com/zhanghai/MaterialFiles
 

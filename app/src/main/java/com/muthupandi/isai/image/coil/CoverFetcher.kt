@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * CoverFetcher.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,11 +27,11 @@ import coil3.fetch.Fetcher
 import coil3.fetch.SourceFetchResult
 import coil3.key.Keyer as CoilKeyer
 import coil3.request.Options
+import com.muthupandi.musikr.covers.Cover
 import javax.inject.Inject
 import okio.FileSystem
 import okio.buffer
 import okio.source
-import com.muthupandi.musikr.covers.Cover
 
 class CoverFetcher private constructor(private val cover: Cover) : Fetcher {
     override suspend fun fetch(): FetchResult? {

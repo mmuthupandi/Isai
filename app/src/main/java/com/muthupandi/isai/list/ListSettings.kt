@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ListSettings.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,11 +21,11 @@ package com.muthupandi.isai.list
 
 import android.content.Context
 import androidx.core.content.edit
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
 import com.muthupandi.isai.R
 import com.muthupandi.isai.list.sort.Sort
 import com.muthupandi.isai.settings.Settings
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
 interface ListSettings : Settings<ListSettings.Listener> {
     /** The [Sort] mode used in Song lists. */

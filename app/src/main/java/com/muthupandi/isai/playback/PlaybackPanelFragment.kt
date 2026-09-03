@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackPanelFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,8 +35,6 @@ import androidx.core.view.updatePadding
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.abs
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentPlaybackPanelBinding
 import com.muthupandi.isai.detail.DetailViewModel
@@ -61,6 +58,8 @@ import com.muthupandi.isai.util.smoothScrollByPageTo
 import com.muthupandi.isai.util.systemBarInsetsCompat
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.abs
 import timber.log.Timber as L
 
 /**

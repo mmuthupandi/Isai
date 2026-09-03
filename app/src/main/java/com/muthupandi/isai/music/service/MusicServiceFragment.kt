@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MusicServiceFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,14 +24,14 @@ import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat.MediaItem
 import androidx.media.MediaBrowserServiceCompat.BrowserRoot
 import androidx.media.MediaBrowserServiceCompat.Result
+import com.muthupandi.isai.ForegroundListener
+import com.muthupandi.isai.ForegroundServiceNotification
+import com.muthupandi.isai.music.MusicRepository
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import com.muthupandi.isai.ForegroundListener
-import com.muthupandi.isai.ForegroundServiceNotification
-import com.muthupandi.isai.music.MusicRepository
 import timber.log.Timber as L
 
 class MusicServiceFragment

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackViewModel.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,14 +21,6 @@ package com.muthupandi.isai.playback
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-import kotlin.time.Duration.Companion.milliseconds
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import com.muthupandi.isai.list.ListSettings
 import com.muthupandi.isai.list.adapter.UpdateInstructions
 import com.muthupandi.isai.playback.state.DeferredPlayback
@@ -47,6 +38,14 @@ import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlin.time.Duration.Companion.milliseconds
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import timber.log.Timber as L
 
 /**

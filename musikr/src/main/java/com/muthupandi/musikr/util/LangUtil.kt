@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * LangUtil.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,6 +19,8 @@
  
 package com.muthupandi.musikr.util
 
+import com.muthupandi.musikr.BuildConfig
+import com.muthupandi.musikr.tag.Date
 import java.security.MessageDigest
 import java.util.UUID
 import kotlin.coroutines.CoroutineContext
@@ -30,8 +31,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.channels.Channel
-import com.muthupandi.musikr.BuildConfig
-import com.muthupandi.musikr.tag.Date
 
 fun CoroutineScope.tryAsync(
     context: CoroutineContext,

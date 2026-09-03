@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackBarFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,7 +22,6 @@ package com.muthupandi.isai.playback
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.activityViewModels
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentPlaybackBarBinding
 import com.muthupandi.isai.detail.DetailViewModel
@@ -33,6 +31,7 @@ import com.muthupandi.isai.playback.state.RepeatMode
 import com.muthupandi.isai.ui.ViewBindingFragment
 import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

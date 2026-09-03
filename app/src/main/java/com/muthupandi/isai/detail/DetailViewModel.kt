@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * DetailViewModel.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,11 +21,6 @@ package com.muthupandi.isai.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import com.muthupandi.isai.R
 import com.muthupandi.isai.detail.list.DiscDivider
 import com.muthupandi.isai.detail.list.DiscHeader
@@ -54,6 +48,11 @@ import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import timber.log.Timber as L
 
 /**

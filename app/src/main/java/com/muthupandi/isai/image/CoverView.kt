@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * CoverView.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -54,9 +53,6 @@ import com.google.android.material.R as MR
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.RelativeCornerSize
 import com.google.android.material.shape.ShapeAppearanceModel
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
-import kotlin.math.min
 import com.muthupandi.isai.R
 import com.muthupandi.isai.image.coil.GalleryCoverCollection
 import com.muthupandi.isai.image.coil.RoundedRectTransformation
@@ -76,6 +72,9 @@ import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
 import com.muthupandi.musikr.covers.CoverCollection
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import kotlin.math.min
 
 /**
  * Isai's extension of [ImageView] that enables cover art loading and playing indicator and

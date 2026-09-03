@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MaterialDragCallback.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,15 +29,15 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.R as MR
 import com.google.android.material.shape.MaterialShapeDrawable
-import kotlin.math.abs
-import kotlin.math.max
-import kotlin.math.min
-import kotlin.math.sign
 import com.muthupandi.isai.R
 import com.muthupandi.isai.ui.Effect
 import com.muthupandi.isai.ui.Spatial
 import com.muthupandi.isai.util.getDimen
 import com.muthupandi.isai.util.getDimenPixels
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
+import kotlin.math.sign
 import timber.log.Timber as L
 
 /**

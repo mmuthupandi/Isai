@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ExtractStep.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,10 +20,6 @@
 package com.muthupandi.musikr.pipeline
 
 import android.content.Context
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.Channel
 import com.muthupandi.musikr.Config
 import com.muthupandi.musikr.cache.Audio
 import com.muthupandi.musikr.cache.CachedFile
@@ -39,6 +34,10 @@ import com.muthupandi.musikr.tag.parse.TagParser
 import com.muthupandi.musikr.util.mapParallel
 import com.muthupandi.musikr.util.merge
 import com.muthupandi.musikr.util.tryAsyncWith
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
 
 internal interface ExtractStep {
     suspend fun extract(

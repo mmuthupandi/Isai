@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * BitmapProvider.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,9 +26,9 @@ import coil3.request.Disposable
 import coil3.request.ImageRequest
 import coil3.size.Size
 import coil3.toBitmap
+import com.muthupandi.musikr.Song
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
-import com.muthupandi.musikr.Song
 
 /**
  * A utility to provide bitmaps in a race-less manner.

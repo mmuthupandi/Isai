@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Musikr.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,9 +20,6 @@
 package com.muthupandi.musikr
 
 import android.content.Context
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.coroutineScope
 import com.muthupandi.musikr.pipeline.EvaluateStep
 import com.muthupandi.musikr.pipeline.ExploreStep
 import com.muthupandi.musikr.pipeline.Explored
@@ -31,6 +27,9 @@ import com.muthupandi.musikr.pipeline.ExtractStep
 import com.muthupandi.musikr.pipeline.Extracted
 import com.muthupandi.musikr.util.merge
 import com.muthupandi.musikr.util.tryAsyncWith
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.coroutineScope
 
 /**
  * A highly opinionated, multi-threaded device music library.

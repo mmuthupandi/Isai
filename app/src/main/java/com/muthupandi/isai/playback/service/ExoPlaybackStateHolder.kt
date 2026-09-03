@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ExoPlaybackStateHolder.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,21 +38,12 @@ import androidx.media3.exoplayer.audio.DefaultAudioSink
 import androidx.media3.exoplayer.audio.MediaCodecAudioRenderer
 import androidx.media3.exoplayer.mediacodec.MediaCodecSelector
 import androidx.media3.exoplayer.source.MediaSource
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import kotlin.math.abs
-import kotlin.time.Duration.Companion.milliseconds
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import kotlinx.coroutines.yield
 import com.muthupandi.isai.image.ImageSettings
 import com.muthupandi.isai.music.MusicRepository
 import com.muthupandi.isai.playback.PlaybackSettings
 import com.muthupandi.isai.playback.persist.PersistenceRepository
+import com.muthupandi.isai.playback.persist.PlayHistory
+import com.muthupandi.isai.playback.persist.PlayHistoryDao
 import com.muthupandi.isai.playback.replaygain.ReplayGainAudioProcessor
 import com.muthupandi.isai.playback.state.DeferredPlayback
 import com.muthupandi.isai.playback.state.PlaybackCommand
@@ -67,9 +57,18 @@ import com.muthupandi.isai.playback.state.StateAck
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
 import com.muthupandi.musikr.tag.Name
-import com.muthupandi.isai.playback.persist.PlayHistory
-import com.muthupandi.isai.playback.persist.PlayHistoryDao
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import kotlin.math.abs
+import kotlin.time.Duration.Companion.milliseconds
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.yield
 import timber.log.Timber as L
 
 @OptIn(UnstableApi::class)
@@ -516,19 +515,20 @@ class ExoPlaybackStateHolder(
             val song = mediaItem.song
             if (song != null) {
                 val threshold = (song.durationMs / 2).coerceAtMost(30_000L)
-                trackingJob = CoroutineScope(Dispatchers.Main + Job()).launch {
-                    while (isActive) {
-                        delay(5000)
-                        if (!loggedCurrentItem && sessionOngoing && player.isPlaying) {
-                            val currentPos = player.currentPosition
-                            if (currentPos >= threshold) {
-                                logPlayHistory(song, song.durationMs)
-                                loggedCurrentItem = true
-                                break
+                trackingJob =
+                    CoroutineScope(Dispatchers.Main + Job()).launch {
+                        while (isActive) {
+                            delay(5000)
+                            if (!loggedCurrentItem && sessionOngoing && player.isPlaying) {
+                                val currentPos = player.currentPosition
+                                if (currentPos >= threshold) {
+                                    logPlayHistory(song, song.durationMs)
+                                    loggedCurrentItem = true
+                                    break
+                                }
                             }
                         }
                     }
-                }
             }
         }
 
@@ -545,10 +545,13 @@ class ExoPlaybackStateHolder(
                     PlayHistory(
                         songUid = song.uid,
                         title = song.name.raw,
-                        artist = song.artists.joinToString { (it.name as? Name.Known)?.raw ?: "Unknown Artist" },
+                        artist =
+                            song.artists.joinToString {
+                                (it.name as? Name.Known)?.raw ?: "Unknown Artist"
+                            },
                         album = (song.album.name as? Name.Known)?.raw ?: "Unknown Album",
                         durationListenedMs = durationListened,
-                        timestamp = System.currentTimeMillis()
+                        timestamp = System.currentTimeMillis(),
                     )
                 )
                 L.d("Logged play history for ${song.name}")

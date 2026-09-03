@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * FrameworkUtil.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,11 +40,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import androidx.viewpager2.widget.ViewPager2
-import java.lang.IllegalArgumentException
-import java.lang.reflect.Field
 import com.muthupandi.isai.R
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import java.lang.IllegalArgumentException
+import java.lang.reflect.Field
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Date.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,9 +19,9 @@
  
 package com.muthupandi.musikr.tag
 
-import kotlin.math.max
 import com.muthupandi.musikr.util.inRangeOrNull
 import com.muthupandi.musikr.util.positiveOrNull
+import kotlin.math.max
 
 /**
  * An ISO-8601/RFC 3339 Date.

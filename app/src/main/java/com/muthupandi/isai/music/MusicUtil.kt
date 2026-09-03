@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MusicUtil.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,9 +20,6 @@
 package com.muthupandi.isai.music
 
 import android.content.Context
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import kotlin.math.max
 import com.muthupandi.isai.R
 import com.muthupandi.isai.util.concatLocalized
 import com.muthupandi.musikr.Music
@@ -34,6 +30,9 @@ import com.muthupandi.musikr.tag.Name
 import com.muthupandi.musikr.tag.Placeholder
 import com.muthupandi.musikr.tag.ReleaseType
 import com.muthupandi.musikr.tag.ReleaseType.Refinement
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import kotlin.math.max
 import timber.log.Timber
 
 fun Name.resolve(context: Context) =

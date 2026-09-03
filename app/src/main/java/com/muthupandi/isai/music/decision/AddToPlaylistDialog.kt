@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * AddToPlaylistDialog.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,7 +28,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.RecyclerView
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.DialogMusicChoicesBinding
 import com.muthupandi.isai.list.ClickableListListener
@@ -39,6 +37,7 @@ import com.muthupandi.isai.ui.ViewBindingMaterialDialogFragment
 import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.isai.util.navigateSafe
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

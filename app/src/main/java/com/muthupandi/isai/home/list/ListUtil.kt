@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ListUtil.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -33,13 +32,13 @@ import android.graphics.RectF
 import android.graphics.drawable.Drawable
 import androidx.core.text.isDigitsOnly
 import com.google.android.material.R
+import com.muthupandi.isai.ui.ExpressiveShapes
+import com.muthupandi.isai.util.getAttrColorCompat
+import com.muthupandi.musikr.tag.Name
 import kotlin.math.hypot
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
-import com.muthupandi.isai.ui.ExpressiveShapes
-import com.muthupandi.isai.util.getAttrColorCompat
-import com.muthupandi.musikr.tag.Name
 
 fun Name.thumb() =
     when (this) {

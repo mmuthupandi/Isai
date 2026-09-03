@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SmatteringCompositionFetcher.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,11 +35,11 @@ import coil3.fetch.Fetcher
 import coil3.key.Keyer as CoilKeyer
 import coil3.request.Options
 import coil3.size.Size
+import com.muthupandi.musikr.covers.CoverCollection
 import javax.inject.Inject
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
-import com.muthupandi.musikr.covers.CoverCollection
 
 private const val OUTSET_PERCENT = 0.08f
 

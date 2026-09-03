@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ArtistDetailFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,7 +23,6 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentDetailBinding
 import com.muthupandi.isai.detail.list.ArtistDetailListAdapter
@@ -47,6 +45,7 @@ import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
 import com.muthupandi.musikr.tag.Name
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

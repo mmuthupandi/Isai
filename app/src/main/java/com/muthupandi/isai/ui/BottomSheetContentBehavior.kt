@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * BottomSheetContentBehavior.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,10 +25,10 @@ import android.view.View
 import android.view.WindowInsets
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.bottomsheet.BackportBottomSheetBehavior
-import kotlin.math.abs
 import com.muthupandi.isai.util.coordinatorLayoutBehavior
 import com.muthupandi.isai.util.replaceSystemBarInsetsCompat
 import com.muthupandi.isai.util.systemBarInsetsCompat
+import kotlin.math.abs
 
 /**
  * A behavior that automatically re-layouts and re-insets content to align with the parent layout's

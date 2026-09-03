@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PreMusic.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,7 +20,6 @@
 package com.muthupandi.musikr.tag.interpret
 
 import android.net.Uri
-import java.util.UUID
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.covers.Cover
 import com.muthupandi.musikr.fs.Format
@@ -32,6 +30,7 @@ import com.muthupandi.musikr.tag.Name
 import com.muthupandi.musikr.tag.ReleaseType
 import com.muthupandi.musikr.tag.ReplayGainAdjustment
 import com.muthupandi.musikr.util.update
+import java.util.UUID
 
 internal data class PreSong(
     val v363Uid: Music.UID,

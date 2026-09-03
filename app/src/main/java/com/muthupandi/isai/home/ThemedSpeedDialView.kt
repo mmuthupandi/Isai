@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2018 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ThemedSpeedDialView.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -50,13 +49,13 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.leinardi.android.speeddial.FabWithLabelView
 import com.leinardi.android.speeddial.SpeedDialActionItem
 import com.leinardi.android.speeddial.SpeedDialView
-import kotlin.math.roundToInt
-import kotlinx.parcelize.Parcelize
 import com.muthupandi.isai.R
 import com.muthupandi.isai.util.getAttrColorCompat
 import com.muthupandi.isai.util.getAttrResourceId
 import com.muthupandi.isai.util.getDimen
 import com.muthupandi.isai.util.getDimenPixels
+import kotlin.math.roundToInt
+import kotlinx.parcelize.Parcelize
 
 /**
  * Customized Speed Dial view with some bug fixes and Material 3 theming.

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ViewBindingBottomSheetDialogFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,9 +31,9 @@ import com.google.android.material.bottomsheet.BackportBottomSheetBehavior
 import com.google.android.material.bottomsheet.BackportBottomSheetDialog
 import com.google.android.material.bottomsheet.BackportBottomSheetDialogFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import javax.inject.Inject
 import com.muthupandi.isai.util.getDimenPixels
 import com.muthupandi.isai.util.unlikelyToBeNull
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

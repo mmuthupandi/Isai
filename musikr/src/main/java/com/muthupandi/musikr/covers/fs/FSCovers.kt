@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2025 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * FSCovers.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,9 +24,6 @@ import android.content.Context
 import android.net.Uri
 import android.os.ParcelFileDescriptor
 import androidx.core.net.toUri
-import java.io.InputStream
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import com.muthupandi.musikr.covers.Cover
 import com.muthupandi.musikr.covers.CoverResult
 import com.muthupandi.musikr.covers.Covers
@@ -36,6 +32,9 @@ import com.muthupandi.musikr.covers.MutableCovers
 import com.muthupandi.musikr.fs.File
 import com.muthupandi.musikr.metadata.Metadata
 import com.muthupandi.musikr.util.unlikelyToBeNull
+import java.io.InputStream
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 private const val PREFIX = "mcf:"
 

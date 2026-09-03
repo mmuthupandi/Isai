@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2025 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MusikrShimModule.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,15 +20,15 @@
 package com.muthupandi.isai.music.shim
 
 import android.content.Context
+import com.muthupandi.musikr.cache.MutableCache
+import com.muthupandi.musikr.cache.db.MutableDBCache
+import com.muthupandi.musikr.playlist.db.StoredPlaylists
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-import com.muthupandi.musikr.cache.MutableCache
-import com.muthupandi.musikr.cache.db.MutableDBCache
-import com.muthupandi.musikr.playlist.db.StoredPlaylists
 
 @Module
 @InstallIn(SingletonComponent::class)

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * QueueFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,14 +27,14 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.min
 import com.muthupandi.isai.databinding.FragmentQueueBinding
 import com.muthupandi.isai.list.EditClickListListener
 import com.muthupandi.isai.playback.PlaybackViewModel
 import com.muthupandi.isai.ui.ViewBindingFragment
 import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.min
 import timber.log.Timber as L
 
 /**

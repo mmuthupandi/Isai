@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
  * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackMaskableFrameLayout.kt is part of Isai.
  *
@@ -25,9 +24,9 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import com.google.android.material.carousel.MaskableFrameLayout
 import com.google.android.material.shape.ShapeAppearanceModel
+import com.muthupandi.isai.ui.UISettings
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import com.muthupandi.isai.ui.UISettings
 
 @AndroidEntryPoint
 class PlaybackMaskableFrameLayout

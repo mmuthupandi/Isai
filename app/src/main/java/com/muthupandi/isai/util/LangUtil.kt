@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * LangUtil.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,8 +19,8 @@
  
 package com.muthupandi.isai.util
 
-import kotlin.reflect.KClass
 import com.muthupandi.isai.BuildConfig
+import kotlin.reflect.KClass
 
 /**
  * Sanitizes a value that is unlikely to be null. On debug builds, this aliases to [requireNotNull],

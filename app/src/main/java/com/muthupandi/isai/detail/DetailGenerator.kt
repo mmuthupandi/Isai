@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * DetailGenerator.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,7 +20,6 @@
 package com.muthupandi.isai.detail
 
 import androidx.annotation.StringRes
-import javax.inject.Inject
 import com.muthupandi.isai.R
 import com.muthupandi.isai.list.ListSettings
 import com.muthupandi.isai.list.sort.Sort
@@ -36,6 +34,7 @@ import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
 import com.muthupandi.musikr.tag.Disc
 import com.muthupandi.musikr.tag.ReleaseType
+import javax.inject.Inject
 import timber.log.Timber as L
 
 interface DetailGenerator {

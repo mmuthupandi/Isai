@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SongDetailDialog.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +25,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.DialogSongDetailBinding
 import com.muthupandi.isai.detail.list.SongProperty
@@ -35,6 +33,7 @@ import com.muthupandi.isai.list.adapter.UpdateInstructions
 import com.muthupandi.isai.ui.ViewBindingMaterialDialogFragment
 import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

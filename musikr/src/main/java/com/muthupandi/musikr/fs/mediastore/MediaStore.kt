@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2025 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MediaStore.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,14 +23,6 @@ import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore as AOSPMediaStore
 import androidx.core.database.getStringOrNull
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
 import com.muthupandi.musikr.fs.AddedMs
 import com.muthupandi.musikr.fs.FS
 import com.muthupandi.musikr.fs.FSUpdate
@@ -43,6 +34,14 @@ import com.muthupandi.musikr.fs.saf.contentResolverSafe
 import com.muthupandi.musikr.fs.saf.useQuery
 import com.muthupandi.musikr.fs.track.LocationObserver
 import com.muthupandi.musikr.util.tryAsyncWith
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 
 /**
  * MediaStore implementation of [FS] that queries the Android MediaStore database for audio files

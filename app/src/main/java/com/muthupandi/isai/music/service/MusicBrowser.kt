@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MusicBrowser.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,7 +21,6 @@ package com.muthupandi.isai.music.service
 
 import android.content.Context
 import android.support.v4.media.MediaBrowserCompat.MediaItem
-import javax.inject.Inject
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.R
 import com.muthupandi.isai.detail.DetailGenerator
@@ -39,6 +37,7 @@ import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import javax.inject.Inject
 
 class MusicBrowser
 private constructor(

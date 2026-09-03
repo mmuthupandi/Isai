@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SystemPlaybackReceiver.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,11 +25,11 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.media.AudioManager
 import androidx.core.content.ContextCompat
-import javax.inject.Inject
 import com.muthupandi.isai.playback.PlaybackSettings
 import com.muthupandi.isai.playback.state.PlaybackStateManager
 import com.muthupandi.isai.widgets.WidgetComponent
 import com.muthupandi.isai.widgets.WidgetProvider
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

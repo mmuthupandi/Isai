@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MetadataExtractor.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,10 +21,10 @@ package com.muthupandi.musikr.metadata
 
 import android.content.ContentResolver
 import android.content.Context
+import com.muthupandi.musikr.fs.File
 import java.io.FileInputStream
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import com.muthupandi.musikr.fs.File
 
 internal interface MetadataExtractor {
     suspend fun extract(deviceFile: File): MetadataResult

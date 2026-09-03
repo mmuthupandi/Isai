@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MediaSessionInterface.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,9 +26,6 @@ import android.provider.MediaStore
 import android.support.v4.media.MediaDescriptionCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import org.apache.commons.text.similarity.JaroWinklerSimilarity
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.music.MusicRepository
 import com.muthupandi.isai.music.resolve
@@ -48,6 +44,9 @@ import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
 import com.muthupandi.musikr.tag.Name
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import org.apache.commons.text.similarity.JaroWinklerSimilarity
 
 class MediaSessionInterface
 @Inject

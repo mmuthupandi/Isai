@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * AlbumSongSortDialog.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,13 +22,13 @@ package com.muthupandi.isai.detail.sort
 import android.os.Bundle
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.databinding.DialogSortBinding
 import com.muthupandi.isai.detail.DetailViewModel
 import com.muthupandi.isai.list.sort.Sort
 import com.muthupandi.isai.list.sort.SortDialog
 import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.musikr.Album
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

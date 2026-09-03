@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SettingCovers.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,8 +21,6 @@ package com.muthupandi.isai.image.covers
 
 import android.content.Context
 import android.graphics.Bitmap
-import java.util.UUID
-import javax.inject.Inject
 import com.muthupandi.isai.image.CoverMode
 import com.muthupandi.isai.image.ImageSettings
 import com.muthupandi.musikr.covers.Cover
@@ -41,6 +38,8 @@ import com.muthupandi.musikr.covers.stored.CoverStorage
 import com.muthupandi.musikr.covers.stored.MutableStoredCovers
 import com.muthupandi.musikr.covers.stored.NoTranscoding
 import com.muthupandi.musikr.covers.stored.StoredCovers
+import java.util.UUID
+import javax.inject.Inject
 
 interface SettingCovers {
     suspend fun mutate(context: Context, revision: UUID): MutableCovers<out Cover>

@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
  * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ExpressiveShapes.kt is part of Isai.
  *

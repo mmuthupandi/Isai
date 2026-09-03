@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MediaButtonReceiver.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,11 +24,11 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
+import com.muthupandi.isai.IntegerTable
+import com.muthupandi.isai.IsaiService
+import com.muthupandi.isai.playback.state.PlaybackStateManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import com.muthupandi.isai.IsaiService
-import com.muthupandi.isai.IntegerTable
-import com.muthupandi.isai.playback.state.PlaybackStateManager
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * GenreSortDialog.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,10 +20,10 @@
 package com.muthupandi.isai.home.sort
 
 import androidx.fragment.app.activityViewModels
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.home.HomeViewModel
 import com.muthupandi.isai.list.sort.Sort
 import com.muthupandi.isai.list.sort.SortDialog
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A [SortDialog] that controls the [Sort] of [HomeViewModel.genreList].

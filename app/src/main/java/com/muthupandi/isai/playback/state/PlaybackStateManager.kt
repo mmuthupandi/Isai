@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackStateManager.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,13 +19,13 @@
  
 package com.muthupandi.isai.playback.state
 
-import javax.inject.Inject
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.list.adapter.UpdateInstructions
 import com.muthupandi.isai.playback.state.PlaybackStateManager.Listener
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

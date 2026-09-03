@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaylistDetailFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,7 +28,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentDetailBinding
 import com.muthupandi.isai.detail.list.PlaylistDetailListAdapter
@@ -54,6 +52,7 @@ import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
 import com.muthupandi.musikr.playlist.m3u.M3U
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**
@@ -185,9 +184,8 @@ class PlaylistDetailFragment :
 
     override fun onAddSongs() {
         val playlist = detailModel.currentPlaylist.value ?: return
-        findNavController().navigateSafe(
-            PlaylistDetailFragmentDirections.addSongs(playlist.uid.toString())
-        )
+        findNavController()
+            .navigateSafe(PlaylistDetailFragmentDirections.addSongs(playlist.uid.toString()))
     }
 
     override fun onPickUp(viewHolder: RecyclerView.ViewHolder) {
@@ -248,12 +246,11 @@ class PlaylistDetailFragment :
             } else {
                 binding.context.getString(R.string.def_song_count)
             }
-            
+
         binding.detailEmptyAction?.isVisible = songs.isEmpty()
         binding.detailEmptyAction?.setOnClickListener {
-            findNavController().navigateSafe(
-                PlaylistDetailFragmentDirections.addSongs(playlist.uid.toString())
-            )
+            findNavController()
+                .navigateSafe(PlaylistDetailFragmentDirections.addSongs(playlist.uid.toString()))
         }
 
         val playable = playlist.songs.isNotEmpty() && editedPlaylist == null

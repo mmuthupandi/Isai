@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackServiceFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,17 +22,10 @@ package com.muthupandi.isai.playback.service
 import android.content.Context
 import android.content.Intent
 import android.support.v4.media.session.MediaSessionCompat
-import javax.inject.Inject
-import kotlin.time.Duration.Companion.milliseconds
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import com.muthupandi.isai.IsaiService.Companion.INTENT_KEY_START_ID
 import com.muthupandi.isai.ForegroundListener
 import com.muthupandi.isai.ForegroundServiceNotification
 import com.muthupandi.isai.IntegerTable
+import com.muthupandi.isai.IsaiService.Companion.INTENT_KEY_START_ID
 import com.muthupandi.isai.playback.PlaybackSettings
 import com.muthupandi.isai.playback.state.DeferredPlayback
 import com.muthupandi.isai.playback.state.PlaybackStateManager
@@ -41,6 +33,13 @@ import com.muthupandi.isai.playback.state.Progression
 import com.muthupandi.isai.widgets.WidgetComponent
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import javax.inject.Inject
+import kotlin.time.Duration.Companion.milliseconds
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import timber.log.Timber as L
 
 class PlaybackServiceFragment

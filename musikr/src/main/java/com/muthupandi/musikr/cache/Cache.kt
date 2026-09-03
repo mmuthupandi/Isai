@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Cache.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -106,8 +105,8 @@ data class Audio(
     /** The parsed tags of the song. */
     val tags: ParsedTags,
     /**
-     * The cover ID of the song. Should be understandable by the [com.muthupandi.musikr.covers.Covers]
-     * implementation used.
+     * The cover ID of the song. Should be understandable by the
+     * [com.muthupandi.musikr.covers.Covers] implementation used.
      */
     val coverId: String?,
 )

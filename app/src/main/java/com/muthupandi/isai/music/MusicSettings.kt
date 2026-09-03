@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MusicSettings.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,9 +22,6 @@ package com.muthupandi.isai.music
 import android.content.Context
 import androidx.core.content.edit
 import androidx.core.net.toUri
-import dagger.hilt.android.qualifiers.ApplicationContext
-import java.util.UUID
-import javax.inject.Inject
 import com.muthupandi.isai.IntegerTable
 import com.muthupandi.isai.R
 import com.muthupandi.isai.music.locations.LocationMode
@@ -34,6 +30,9 @@ import com.muthupandi.isai.util.unlikelyToBeNull
 import com.muthupandi.musikr.fs.Location
 import com.muthupandi.musikr.fs.mediastore.MediaStore
 import com.muthupandi.musikr.fs.saf.SAF
+import dagger.hilt.android.qualifiers.ApplicationContext
+import java.util.UUID
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

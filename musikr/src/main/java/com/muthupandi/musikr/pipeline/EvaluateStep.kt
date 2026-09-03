@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * EvaluateStep.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,7 +20,6 @@
 package com.muthupandi.musikr.pipeline
 
 import android.content.Context
-import kotlinx.coroutines.channels.Channel
 import com.muthupandi.musikr.BuildConfig
 import com.muthupandi.musikr.Config
 import com.muthupandi.musikr.Interpretation
@@ -31,6 +29,7 @@ import com.muthupandi.musikr.model.LibraryFactory
 import com.muthupandi.musikr.playlist.db.StoredPlaylists
 import com.muthupandi.musikr.playlist.interpret.PlaylistInterpreter
 import com.muthupandi.musikr.tag.interpret.TagInterpreter
+import kotlinx.coroutines.channels.Channel
 
 internal interface EvaluateStep {
     suspend fun evaluate(extractedMusic: Channel<Extracted>): MutableLibrary

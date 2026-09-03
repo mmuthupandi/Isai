@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
  * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * WidthFixMaterialButton.kt is part of Isai.
  *
@@ -28,8 +27,8 @@ import com.google.android.material.R
 import com.muthupandi.isai.ui.RippleFixMaterialButton
 
 /**
- * [com.muthupandi.isai.ui.RippleFixMaterialButton] that works around another bug where switching the
- * icon during a press breaks width expansion animations.
+ * [com.muthupandi.isai.ui.RippleFixMaterialButton] that works around another bug where switching
+ * the icon during a press breaks width expansion animations.
  *
  * @author Alexander Capehart (Muthupandi)
  *

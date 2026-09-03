@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
  * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * WavySlider.kt is part of Isai.
  *
@@ -42,10 +41,10 @@ import androidx.dynamicanimation.animation.FloatValueHolder
 import androidx.dynamicanimation.animation.SpringAnimation
 import com.google.android.material.R as MR
 import com.google.android.material.motion.MotionUtils
+import com.muthupandi.isai.R
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
-import com.muthupandi.isai.R
 import timber.log.Timber
 
 /**

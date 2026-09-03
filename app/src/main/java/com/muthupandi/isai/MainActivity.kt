@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MainActivity.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,14 +27,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.WindowCompat
 import androidx.core.view.updatePadding
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import com.muthupandi.isai.databinding.ActivityMainBinding
 import com.muthupandi.isai.playback.PlaybackViewModel
 import com.muthupandi.isai.playback.state.DeferredPlayback
 import com.muthupandi.isai.ui.UISettings
 import com.muthupandi.isai.util.isNight
 import com.muthupandi.isai.util.systemBarInsetsCompat
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

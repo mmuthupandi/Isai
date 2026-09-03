@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlayFromGenreDialog.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,7 +27,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.DialogMusicChoicesBinding
 import com.muthupandi.isai.list.ClickableListListener
@@ -39,6 +37,7 @@ import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.isai.util.unlikelyToBeNull
 import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * FastScrollRecyclerView.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -53,11 +52,6 @@ import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.R as MR
 import com.google.android.material.textview.MaterialTextView
-import kotlin.math.abs
-import kotlin.math.hypot
-import kotlin.math.max
-import kotlin.math.min
-import kotlin.math.roundToInt
 import com.muthupandi.isai.R
 import com.muthupandi.isai.ui.Effect
 import com.muthupandi.isai.ui.ExpressiveShapes
@@ -70,6 +64,11 @@ import com.muthupandi.isai.util.isRtl
 import com.muthupandi.isai.util.isUnder
 import com.muthupandi.isai.util.scale
 import com.muthupandi.isai.util.systemBarInsetsCompat
+import kotlin.math.abs
+import kotlin.math.hypot
+import kotlin.math.max
+import kotlin.math.min
+import kotlin.math.roundToInt
 
 /**
  * A [RecyclerView] that enables better fast-scrolling. This is fundamentally a implementation of

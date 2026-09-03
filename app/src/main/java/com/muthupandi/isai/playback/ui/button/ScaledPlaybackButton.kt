@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
  * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ScaledPlaybackButton.kt is part of Isai.
  *
@@ -33,9 +32,9 @@ import com.google.android.material.shape.RelativeCornerSize
 import com.google.android.material.shape.ShapeAppearance
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.shape.StateListShapeAppearanceModel
+import com.muthupandi.isai.util.lazyReflectedMethod
 import java.lang.reflect.Method
 import kotlin.math.max
-import com.muthupandi.isai.util.lazyReflectedMethod
 
 /**
  * Companion scalable button to [ScaledPlaybackButtonGroup], see that.

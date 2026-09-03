@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2025 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * CoverProvider.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,10 +26,10 @@ import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 import android.os.ParcelFileDescriptor
-import kotlinx.coroutines.runBlocking
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.image.covers.SettingCovers
 import com.muthupandi.musikr.covers.CoverResult
+import kotlinx.coroutines.runBlocking
 
 class CoverProvider : ContentProvider() {
     override fun onCreate(): Boolean = true

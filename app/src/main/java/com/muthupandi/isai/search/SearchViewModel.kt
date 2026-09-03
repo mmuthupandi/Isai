@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SearchViewModel.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,13 +21,6 @@ package com.muthupandi.isai.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.yield
 import com.muthupandi.isai.R
 import com.muthupandi.isai.list.BasicHeader
 import com.muthupandi.isai.list.Item
@@ -40,6 +32,13 @@ import com.muthupandi.isai.playback.PlaySong
 import com.muthupandi.isai.playback.PlaybackSettings
 import com.muthupandi.musikr.Library
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.yield
 import timber.log.Timber as L
 
 /**

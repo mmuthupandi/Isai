@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * TagUtilTest.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,13 +19,13 @@
  
 package com.muthupandi.musikr.tag.parse
 
-import org.junit.Assert.assertEquals
-import org.junit.Test
 import com.muthupandi.musikr.tag.format.parseId3GenreNames
 import com.muthupandi.musikr.tag.format.parseSlashPositionField
 import com.muthupandi.musikr.tag.format.parseXiphPositionField
 import com.muthupandi.musikr.util.correctWhitespace
 import com.muthupandi.musikr.util.splitEscaped
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class TagUtilTest {
     @Test

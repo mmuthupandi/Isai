@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * AccentGridLayoutManager.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,9 +23,9 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.math.max
 import com.muthupandi.isai.R
 import com.muthupandi.isai.util.getDimenPixels
+import kotlin.math.max
 
 /**
  * A [GridLayoutManager] that automatically sets the span size in order to use the most possible

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SearchEngine.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,9 +20,6 @@
 package com.muthupandi.isai.search
 
 import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
-import java.text.Normalizer
-import javax.inject.Inject
 import com.muthupandi.isai.music.resolve
 import com.muthupandi.musikr.Album
 import com.muthupandi.musikr.Artist
@@ -32,6 +28,9 @@ import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
 import com.muthupandi.musikr.tag.Name
+import dagger.hilt.android.qualifiers.ApplicationContext
+import java.text.Normalizer
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

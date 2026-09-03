@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MediaSessionHolder.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,7 +35,6 @@ import androidx.media.session.MediaButtonReceiver
 import coil3.request.CachePolicy
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
-import javax.inject.Inject
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.ForegroundListener
 import com.muthupandi.isai.ForegroundServiceNotification
@@ -56,6 +54,7 @@ import com.muthupandi.isai.util.newBroadcastPendingIntent
 import com.muthupandi.isai.util.newMainPendingIntent
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * AboutFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,7 +29,6 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.MaterialFadeThrough
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentAboutBinding
@@ -41,6 +39,7 @@ import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.isai.util.openInBrowser
 import com.muthupandi.isai.util.startIntent
 import com.muthupandi.isai.util.systemBarInsetsCompat
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A [ViewBindingFragment] that displays information about the app and the current music library.
@@ -80,8 +79,6 @@ class AboutFragment : ViewBindingFragment<FragmentAboutBinding>() {
         binding.aboutFeedbackEmail.setOnClickListener {
             requireContext().sendEmail("feedback@isai.app")
         }
-
-
 
         // VIEWMODEL SETUP
         collectImmediately(musicModel.statistics, ::updateStatistics)

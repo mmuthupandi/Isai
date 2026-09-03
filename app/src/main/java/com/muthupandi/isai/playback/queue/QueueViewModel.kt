@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * QueueViewModel.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,10 +20,6 @@
 package com.muthupandi.isai.playback.queue
 
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import com.muthupandi.isai.list.adapter.UpdateInstructions
 import com.muthupandi.isai.playback.state.PlaybackStateManager
 import com.muthupandi.isai.playback.state.QueueChange
@@ -32,6 +27,10 @@ import com.muthupandi.isai.util.Event
 import com.muthupandi.isai.util.MutableEvent
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import timber.log.Timber as L
 
 /**

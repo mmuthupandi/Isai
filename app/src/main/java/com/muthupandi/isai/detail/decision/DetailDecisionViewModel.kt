@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * DetailDecisionViewModel.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,16 +20,16 @@
 package com.muthupandi.isai.detail.decision
 
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import com.muthupandi.isai.music.MusicRepository
 import com.muthupandi.musikr.Album
 import com.muthupandi.musikr.Artist
 import com.muthupandi.musikr.Library
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * M3U.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,11 +20,6 @@
 package com.muthupandi.musikr.playlist.m3u
 
 import android.content.Context
-import java.io.BufferedReader
-import java.io.BufferedWriter
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.io.OutputStream
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.fs.Components
 import com.muthupandi.musikr.fs.Path
@@ -37,6 +31,11 @@ import com.muthupandi.musikr.playlist.PossiblePaths
 import com.muthupandi.musikr.tag.Name
 import com.muthupandi.musikr.util.correctWhitespace
 import com.muthupandi.musikr.util.unlikelyToBeNull
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.io.OutputStream
 
 /**
  * Minimal M3U file format implementation.

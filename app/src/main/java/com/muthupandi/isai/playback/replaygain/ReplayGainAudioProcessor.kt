@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2022 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ReplayGainAudioProcessor.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,15 +25,15 @@ import androidx.media3.common.Player
 import androidx.media3.common.audio.AudioProcessor
 import androidx.media3.common.audio.BaseAudioProcessor
 import androidx.media3.common.util.UnstableApi
-import java.nio.ByteBuffer
-import javax.inject.Inject
-import kotlin.math.pow
 import com.muthupandi.isai.playback.PlaybackSettings
 import com.muthupandi.isai.playback.state.PlaybackStateManager
 import com.muthupandi.isai.playback.state.QueueChange
 import com.muthupandi.musikr.Album
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import java.nio.ByteBuffer
+import javax.inject.Inject
+import kotlin.math.pow
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ReplayGainUtil.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,8 +20,8 @@
 package com.muthupandi.isai.playback.replaygain
 
 import android.content.Context
-import kotlin.math.abs
 import com.muthupandi.isai.R
+import kotlin.math.abs
 
 /**
  * Format a decibel value in a human-readable format.

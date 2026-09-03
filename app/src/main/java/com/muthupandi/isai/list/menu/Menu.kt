@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Menu.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,7 +21,6 @@ package com.muthupandi.isai.list.menu
 
 import android.os.Parcelable
 import androidx.annotation.MenuRes
-import kotlinx.parcelize.Parcelize
 import com.muthupandi.isai.playback.PlaySong
 import com.muthupandi.musikr.Album
 import com.muthupandi.musikr.Artist
@@ -30,6 +28,7 @@ import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import kotlinx.parcelize.Parcelize
 
 /**
  * Command to navigate to a specific menu dialog configuration.

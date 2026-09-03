@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * IntListPreference.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,10 +29,10 @@ import androidx.core.content.withStyledAttributes
 import androidx.preference.DialogPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
-import java.lang.reflect.Field
 import com.muthupandi.isai.R
 import com.muthupandi.isai.util.getInteger
 import com.muthupandi.isai.util.lazyReflectedField
+import java.lang.reflect.Field
 
 /**
  * An implementation of a list-based preference backed with integers.

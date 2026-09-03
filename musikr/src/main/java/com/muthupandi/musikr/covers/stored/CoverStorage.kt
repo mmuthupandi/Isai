@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * CoverStorage.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,6 +20,7 @@
 package com.muthupandi.musikr.covers.stored
 
 import android.os.ParcelFileDescriptor
+import com.muthupandi.musikr.covers.FDCover
 import java.io.File
 import java.io.IOException
 import java.io.OutputStream
@@ -28,7 +28,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import com.muthupandi.musikr.covers.FDCover
 
 /**
  * A cover storage interface backing [StoredCovers].

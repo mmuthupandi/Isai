@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * DetailFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,9 +28,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.transition.MaterialSharedAxis
-import kotlin.math.abs
-import kotlin.math.max
-import kotlin.math.min
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentDetailBinding
@@ -44,6 +40,9 @@ import com.muthupandi.isai.util.getDimenPixels
 import com.muthupandi.isai.util.systemBarInsetsCompat
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.MusicParent
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
 abstract class DetailFragment<P : MusicParent, C : Music> :
     ListFragment<C, FragmentDetailBinding>(),

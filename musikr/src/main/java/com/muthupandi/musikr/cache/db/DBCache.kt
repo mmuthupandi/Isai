@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2025 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * DBCache.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,8 +21,6 @@ package com.muthupandi.musikr.cache.db
 
 import android.content.Context
 import android.net.Uri
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import com.muthupandi.musikr.cache.Audio
 import com.muthupandi.musikr.cache.Cache
 import com.muthupandi.musikr.cache.CacheResult
@@ -32,6 +29,8 @@ import com.muthupandi.musikr.cache.MutableCache
 import com.muthupandi.musikr.fs.File
 import com.muthupandi.musikr.metadata.Properties
 import com.muthupandi.musikr.tag.parse.ParsedTags
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 /**
  * An immutable [Cache] backed by an internal Room database.

@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
  * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * SoftBurstShapeDrawable.kt is part of Isai.
  *
@@ -32,12 +31,12 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.drawable.Drawable
 import com.google.android.material.R as MR
+import com.muthupandi.isai.ui.ExpressiveShapes
+import com.muthupandi.isai.util.getAttrColorCompat
 import kotlin.math.hypot
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
-import com.muthupandi.isai.ui.ExpressiveShapes
-import com.muthupandi.isai.util.getAttrColorCompat
 
 /**
  * A drawable that fills its bounds with the expressive soft-burst shape.

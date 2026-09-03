@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Music.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,10 +22,6 @@ package com.muthupandi.musikr
 import android.net.Uri
 import android.os.Parcelable
 import androidx.room.TypeConverter
-import java.security.MessageDigest
-import java.util.UUID
-import kotlinx.parcelize.IgnoredOnParcel
-import kotlinx.parcelize.Parcelize
 import com.muthupandi.musikr.covers.Cover
 import com.muthupandi.musikr.covers.CoverCollection
 import com.muthupandi.musikr.fs.Format
@@ -37,6 +32,10 @@ import com.muthupandi.musikr.tag.Name
 import com.muthupandi.musikr.tag.ReleaseType
 import com.muthupandi.musikr.tag.ReplayGainAdjustment
 import com.muthupandi.musikr.util.toUuidOrNull
+import java.security.MessageDigest
+import java.util.UUID
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 
 /**
  * Abstract music data. This contains universal information about all concrete music

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * DocumentPathFactory.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,12 +24,12 @@ import android.content.Context
 import android.net.Uri
 import android.provider.DocumentsContract
 import androidx.core.net.toUri
-import java.io.File
 import com.muthupandi.musikr.fs.Components
 import com.muthupandi.musikr.fs.Path
 import com.muthupandi.musikr.fs.Volume
 import com.muthupandi.musikr.fs.saf.contentResolverSafe
 import com.muthupandi.musikr.fs.saf.useQuery
+import java.io.File
 
 /**
  * A factory for parsing the reverse-engineered format of the URIs obtained from document picker.

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MainFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -41,11 +40,6 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.transition.MaterialFadeThrough
 import com.leinardi.android.speeddial.SpeedDialActionItem
 import com.leinardi.android.speeddial.SpeedDialView
-import dagger.hilt.android.AndroidEntryPoint
-import java.lang.reflect.Method
-import javax.inject.Inject
-import kotlin.math.max
-import kotlin.math.min
 import com.muthupandi.isai.databinding.FragmentMainBinding
 import com.muthupandi.isai.detail.DetailViewModel
 import com.muthupandi.isai.detail.Show
@@ -73,6 +67,11 @@ import com.muthupandi.isai.util.navigateSafe
 import com.muthupandi.isai.util.unlikelyToBeNull
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.AndroidEntryPoint
+import java.lang.reflect.Method
+import javax.inject.Inject
+import kotlin.math.max
+import kotlin.math.min
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * Naming.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,11 +21,11 @@ package com.muthupandi.musikr.tag.interpret
 
 import android.icu.text.Transliterator
 import android.os.Build
-import java.text.CollationKey
-import java.text.Collator
 import com.muthupandi.musikr.tag.Name
 import com.muthupandi.musikr.tag.Placeholder
 import com.muthupandi.musikr.tag.Token
+import java.text.CollationKey
+import java.text.Collator
 
 abstract class Naming {
     fun name(raw: String?, sort: String?, placeholder: Placeholder): Name =

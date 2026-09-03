@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * WidgetComponent.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +25,6 @@ import android.os.Build
 import coil3.request.ImageRequest
 import coil3.request.transformations
 import coil3.size.Size
-import javax.inject.Inject
 import com.muthupandi.isai.R
 import com.muthupandi.isai.image.BitmapProvider
 import com.muthupandi.isai.image.ImageSettings
@@ -40,6 +38,7 @@ import com.muthupandi.isai.ui.UISettings
 import com.muthupandi.isai.util.getDimenPixels
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.Song
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

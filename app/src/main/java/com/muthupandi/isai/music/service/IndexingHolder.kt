@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * IndexingHolder.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,11 +22,6 @@ package com.muthupandi.isai.music.service
 import android.content.Context
 import android.os.PowerManager
 import coil3.ImageLoader
-import javax.inject.Inject
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import com.muthupandi.isai.BuildConfig
 import com.muthupandi.isai.ForegroundListener
 import com.muthupandi.isai.ForegroundServiceNotification
@@ -40,6 +34,11 @@ import com.muthupandi.isai.util.getSystemServiceCompat
 import com.muthupandi.musikr.MusicParent
 import com.muthupandi.musikr.fs.mediastore.MediaStore
 import com.muthupandi.musikr.fs.saf.SAF
+import javax.inject.Inject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import timber.log.Timber as L
 
 class IndexingHolder

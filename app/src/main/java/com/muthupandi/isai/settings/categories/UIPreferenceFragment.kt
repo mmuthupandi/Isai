@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * UIPreferenceFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,14 +21,14 @@ package com.muthupandi.isai.settings.categories
 
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import com.muthupandi.isai.R
 import com.muthupandi.isai.settings.BasePreferenceFragment
 import com.muthupandi.isai.settings.ui.WrappedDialogPreference
 import com.muthupandi.isai.ui.UISettings
 import com.muthupandi.isai.util.isNight
 import com.muthupandi.isai.util.navigateSafe
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import timber.log.Timber as L
 
 /**

@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * ContextUtil.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -38,10 +37,10 @@ import androidx.annotation.PluralsRes
 import androidx.annotation.Px
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import kotlin.reflect.KClass
 import com.muthupandi.isai.IntegerTable
 import com.muthupandi.isai.MainActivity
 import com.muthupandi.isai.R
+import kotlin.reflect.KClass
 
 /**
  * Get a [LayoutInflater] instance from this [Context].

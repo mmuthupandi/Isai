@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2025 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * RevisionedTranscoding.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,8 +19,8 @@
  
 package com.muthupandi.isai.image.covers
 
-import java.util.UUID
 import com.muthupandi.musikr.covers.stored.Transcoding
+import java.util.UUID
 
 class RevisionedTranscoding(revision: UUID, private val inner: Transcoding) : Transcoding by inner {
     override val tag = "_$revision${inner.tag}"

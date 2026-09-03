@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * NewPlaylistDialog.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,7 +28,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.DialogPlaylistNameBinding
 import com.muthupandi.isai.music.MusicViewModel
@@ -37,6 +35,7 @@ import com.muthupandi.isai.music.PlaylistDecision
 import com.muthupandi.isai.ui.ViewBindingMaterialDialogFragment
 import com.muthupandi.isai.util.collectImmediately
 import com.muthupandi.isai.util.unlikelyToBeNull
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

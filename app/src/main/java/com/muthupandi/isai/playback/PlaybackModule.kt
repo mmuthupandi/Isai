@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PlaybackModule.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,13 +19,13 @@
  
 package com.muthupandi.isai.playback
 
+import com.muthupandi.isai.playback.state.PlaybackStateManager
+import com.muthupandi.isai.playback.state.PlaybackStateManagerImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-import com.muthupandi.isai.playback.state.PlaybackStateManager
-import com.muthupandi.isai.playback.state.PlaybackStateManagerImpl
 
 @Module
 @InstallIn(SingletonComponent::class)

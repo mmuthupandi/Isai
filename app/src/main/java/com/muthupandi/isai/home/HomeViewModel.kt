@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * HomeViewModel.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,10 +20,6 @@
 package com.muthupandi.isai.home
 
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import com.muthupandi.isai.home.tabs.Tab
 import com.muthupandi.isai.list.ListSettings
 import com.muthupandi.isai.list.adapter.UpdateInstructions
@@ -39,6 +34,10 @@ import com.muthupandi.musikr.Artist
 import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import timber.log.Timber as L
 
 /**

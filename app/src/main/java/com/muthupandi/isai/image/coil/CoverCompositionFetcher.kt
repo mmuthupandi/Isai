@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
  * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * CoverCompositionFetcher.kt is part of Isai.
  *
@@ -35,6 +34,7 @@ import coil3.fetch.Fetcher
 import coil3.fetch.ImageFetchResult
 import coil3.size.Size
 import coil3.size.pxOrElse
+import com.muthupandi.musikr.covers.CoverCollection
 import kotlin.math.min
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -42,7 +42,6 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
-import com.muthupandi.musikr.covers.CoverCollection
 
 interface CoverComposition {
     val covers: CoverCollection

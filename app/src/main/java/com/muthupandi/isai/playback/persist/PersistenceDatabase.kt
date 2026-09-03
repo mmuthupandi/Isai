@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * PersistenceDatabase.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,7 +38,13 @@ import com.muthupandi.musikr.Music
  * @author Alexander Capehart
  */
 @Database(
-    entities = [PlaybackState::class, QueueHeapItem::class, QueueShuffledMappingItem::class, PlayHistory::class],
+    entities =
+        [
+            PlaybackState::class,
+            QueueHeapItem::class,
+            QueueShuffledMappingItem::class,
+            PlayHistory::class,
+        ],
     version = 39,
     exportSchema = false,
 )
@@ -77,7 +82,9 @@ abstract class PersistenceDatabase : RoomDatabase() {
 
         val MIGRATION_38_39 =
             Migration(38, 39) {
-                it.execSQL("CREATE TABLE IF NOT EXISTS `PlayHistory` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `songUid` TEXT NOT NULL, `title` TEXT NOT NULL, `artist` TEXT NOT NULL, `album` TEXT NOT NULL, `durationListenedMs` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL)")
+                it.execSQL(
+                    "CREATE TABLE IF NOT EXISTS `PlayHistory` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `songUid` TEXT NOT NULL, `title` TEXT NOT NULL, `artist` TEXT NOT NULL, `album` TEXT NOT NULL, `durationListenedMs` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL)"
+                )
             }
     }
 }
@@ -174,24 +181,31 @@ data class PlayHistory(
     val artist: String,
     val album: String,
     val durationListenedMs: Long,
-    val timestamp: Long
+    val timestamp: Long,
 )
 
 @Dao
 interface PlayHistoryDao {
-    @Insert
-    suspend fun insert(playHistory: PlayHistory)
+    @Insert suspend fun insert(playHistory: PlayHistory)
 
-    @Query("SELECT songUid, title, artist, album, SUM(durationListenedMs) as totalDurationMs, COUNT(*) as playCount FROM PlayHistory GROUP BY songUid, title, artist, album ORDER BY playCount DESC, totalDurationMs DESC LIMIT 50")
+    @Query(
+        "SELECT songUid, title, artist, album, SUM(durationListenedMs) as totalDurationMs, COUNT(*) as playCount FROM PlayHistory GROUP BY songUid, title, artist, album ORDER BY playCount DESC, totalDurationMs DESC LIMIT 50"
+    )
     suspend fun getTopSongs(): List<TopSongStat>
 
-    @Query("SELECT artist, SUM(durationListenedMs) as totalDurationMs, COUNT(*) as playCount FROM PlayHistory GROUP BY artist ORDER BY playCount DESC, totalDurationMs DESC LIMIT 50")
+    @Query(
+        "SELECT artist, SUM(durationListenedMs) as totalDurationMs, COUNT(*) as playCount FROM PlayHistory GROUP BY artist ORDER BY playCount DESC, totalDurationMs DESC LIMIT 50"
+    )
     suspend fun getTopArtists(): List<TopArtistStat>
 
-    @Query("SELECT album, SUM(durationListenedMs) as totalDurationMs, COUNT(*) as playCount FROM PlayHistory GROUP BY album ORDER BY playCount DESC, totalDurationMs DESC LIMIT 50")
+    @Query(
+        "SELECT album, SUM(durationListenedMs) as totalDurationMs, COUNT(*) as playCount FROM PlayHistory GROUP BY album ORDER BY playCount DESC, totalDurationMs DESC LIMIT 50"
+    )
     suspend fun getTopAlbums(): List<TopAlbumStat>
 
-    @Query("SELECT timestamp, durationListenedMs FROM PlayHistory WHERE timestamp >= :sinceTimestamp")
+    @Query(
+        "SELECT timestamp, durationListenedMs FROM PlayHistory WHERE timestamp >= :sinceTimestamp"
+    )
     suspend fun getRecentHistory(sinceTimestamp: Long): List<RecentHistoryStat>
 }
 
@@ -201,7 +215,7 @@ data class TopSongStat(
     val artist: String,
     val album: String,
     val totalDurationMs: Long,
-    val playCount: Int
+    val playCount: Int,
 )
 
 data class TopArtistStat(val artist: String, val totalDurationMs: Long, val playCount: Int)
@@ -209,4 +223,3 @@ data class TopArtistStat(val artist: String, val totalDurationMs: Long, val play
 data class TopAlbumStat(val album: String, val totalDurationMs: Long, val playCount: Int)
 
 data class RecentHistoryStat(val timestamp: Long, val durationListenedMs: Long)
-

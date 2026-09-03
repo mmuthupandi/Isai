@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * NamingTest.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,12 +19,12 @@
  
 package com.muthupandi.musikr.tag.interpret
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
-import org.junit.Test
 import com.muthupandi.musikr.tag.Name
 import com.muthupandi.musikr.tag.Placeholder
 import com.muthupandi.musikr.tag.Token
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotEquals
+import org.junit.Test
 
 class NamingTest {
     @Test

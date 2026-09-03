@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * HomeGenerator.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,7 +19,6 @@
  
 package com.muthupandi.isai.home
 
-import javax.inject.Inject
 import com.muthupandi.isai.home.tabs.Tab
 import com.muthupandi.isai.list.ListSettings
 import com.muthupandi.isai.list.adapter.UpdateInstructions
@@ -31,6 +29,7 @@ import com.muthupandi.musikr.Artist
 import com.muthupandi.musikr.Genre
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.Song
+import javax.inject.Inject
 import timber.log.Timber as L
 
 interface HomeGenerator {

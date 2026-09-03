@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2021 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * HomeFragment.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -39,7 +38,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.MaterialSharedAxis
-import dagger.hilt.android.AndroidEntryPoint
 import com.muthupandi.isai.R
 import com.muthupandi.isai.databinding.FragmentHomeBinding
 import com.muthupandi.isai.detail.DetailViewModel
@@ -71,6 +69,7 @@ import com.muthupandi.musikr.IndexingProgress
 import com.muthupandi.musikr.Music
 import com.muthupandi.musikr.Playlist
 import com.muthupandi.musikr.playlist.m3u.M3U
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber as L
 
 /**

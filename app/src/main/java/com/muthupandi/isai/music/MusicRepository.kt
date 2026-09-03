@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
-
- * Copyright (c) 2023 OxygenCobalt (Auxio Project)
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
  * MusicRepository.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,14 +20,6 @@
 package com.muthupandi.isai.music
 
 import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
-import java.util.UUID
-import javax.inject.Inject
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.withContext
-import kotlinx.coroutines.yield
 import com.muthupandi.isai.image.covers.SettingCovers
 import com.muthupandi.isai.music.MusicRepository.IndexingWorker
 import com.muthupandi.isai.music.locations.LocationMode
@@ -49,6 +40,14 @@ import com.muthupandi.musikr.fs.saf.SAF
 import com.muthupandi.musikr.playlist.db.StoredPlaylists
 import com.muthupandi.musikr.tag.interpret.Naming
 import com.muthupandi.musikr.tag.interpret.Separators
+import dagger.hilt.android.qualifiers.ApplicationContext
+import java.util.UUID
+import javax.inject.Inject
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.yield
 import timber.log.Timber as L
 
 /**
