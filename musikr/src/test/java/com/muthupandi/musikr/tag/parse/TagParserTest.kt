@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2026 Muthupandi (Isai Project)
- * Copyright (c) 2024 OxygenCobalt (Auxio Project)
- * This software is part of Isai.
+ * Copyright (c) 2026 OxygenCobalt (Auxio Project)
+ * TagParserTest.kt is part of Isai.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
