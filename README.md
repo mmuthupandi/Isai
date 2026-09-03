@@ -1,6 +1,10 @@
 <p align="center"><img src="fastlane/metadata/android/en-US/images/isai_logo.jpg" width="150"></p>
 <h1 align="center"><b>Isai</b></h1>
-<h4 align="center">A simple, rational music player for Android.</h4>
+<h4 align="center">
+  <i>"செவிக்குண வில்லாத போழ்து சிறிது<br>
+  வயிற்றுக்கும் ஈயப் படும்."</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <sub>— குறள் 412</sub><br><br>
+  <i>(When there is no food for the ear, a little is given to the stomach.)</i>
+</h4>
 <p align="center">
     <a href="https://github.com/mmuthupandi/Isai/releases">
         <img alt="Releases" src="https://img.shields.io/github/v/release/mmuthupandi/Isai?color=4B95DE&style=flat">
@@ -11,6 +15,7 @@
     <img alt="Minimum SDK Version" src="https://img.shields.io/badge/API-24%2B-1450A8?style=flat">
 </p>
 <h4 align="center"><a href="/CHANGELOG.md">Changelog</a></h4>
+
 
 ## About
 
@@ -23,6 +28,7 @@ Isai is a local music player with a fast, reliable UI/UX without the many useles
 
 ## Features
 
+- Dedicated listening statistics page
 - Playback based on [Media3 ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer)
 - Snappy UI derived from the latest Material Design guidelines
 - Opinionated UX that prioritizes ease of use over edge cases
