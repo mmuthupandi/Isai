@@ -1,4 +1,4 @@
-<p align="center"><img src="fastlane/metadata/android/en-US/images/icon.png" width="150"></p>
+<p align="center"><img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="150"></p>
 <h1 align="center"><b>Isai</b></h1>
 <h4 align="center">A simple, rational music player for Android.</h4>
 <p align="center">
@@ -19,17 +19,6 @@ Isai is a local music player with a fast, reliable UI/UX without the many useles
 *Isai is a customized fork of the open-source [Auxio](https://github.com/OxygenCobalt/Auxio) music player, originally created by OxygenCobalt. We sincerely thank the original author and contributors for their incredible work.*
 
 **The default branch is the development version of the repository. For a stable version, see the master branch.**
-
-## Screenshots
-
-<p align="center">
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/shot0.png" width=250>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/shot1.png" width=250>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/shot2.png" width=250>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/shot3.png" width=250>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/shot4.png" width=250>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/shot5.png" width=250>
-</p>
 
 
 ## Features
