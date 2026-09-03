@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:liftOnScroll="true"
+        app:liftOnScrollTargetViewId="@id/add_songs_recycler">
+
+        <com.muthupandi.isai.ui.IsaiToolbar
+            android:id="@+id/add_songs_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_close_24"
+            app:menu="@menu/toolbar_add_songs"
+            app:title="@string/lbl_add_songs" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.muthupandi.isai.list.recycler.FastScrollRecyclerView
+        android:id="@+id/add_songs_recycler"
+        style="@style/Widget.Isai.RecyclerView.Linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        tools:listitem="@layout/item_song" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

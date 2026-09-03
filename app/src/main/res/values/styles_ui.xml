@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- SHARED RE-USABLE UI STYLES -->
+
+    <style name="Widget.Isai.AppBarLayout" parent="Widget.Material3.AppBarLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!-- Fix flickering lift animation when scrolling quickly -->
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Base toolbar style -->
+    <style name="Widget.Isai.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">?attr/textAppearanceTitleLargeEmphasized</item>
+        <item name="subtitleTextAppearance">?attr/textAppearanceLabelMediumEmphasized</item>
+        <item name="maxButtonHeight">@dimen/size_touchable_small</item>
+        <item name="android:paddingLeft">@dimen/spacing_tiny</item>
+        <item name="android:paddingStart">@dimen/spacing_tiny</item>
+        <item name="android:paddingRight">@dimen/spacing_tiny</item>
+        <item name="android:paddingEnd">@dimen/spacing_tiny</item>
+    </style>
+
+    <style name="Widget.Isai.TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabTextAppearance">?attr/textAppearanceTitleSmallEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.TabLayout.Secondary" parent="Widget.Material3.TabLayout.Secondary">
+        <item name="tabTextAppearance">?attr/textAppearanceTitleSmallEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textAppearance">?attr/textAppearanceTitleSmallEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Slider" parent="Widget.Material3.Slider">
+        <item name="labelBehavior">gone</item>
+        <item name="tickVisible">false</item>
+        <item name="trackStopIndicatorSize">0dp</item>
+        <item name="trackHeight">@dimen/slider_track_height</item>
+        <item name="trackCornerSize">@dimen/slider_track_height</item>
+        <item name="trackInsideCornerSize">@dimen/slider_track_height</item>
+        <item name="thumbHeight">@dimen/slider_thumb_height</item>
+    </style>
+
+    <style name="Widget.Isai.LinearProgressIndicator" parent="Widget.Material3.LinearProgressIndicator">
+<!--        <item name="trackColor">@color/sel_track</item>-->
+        <item name="trackCornerRadius">@dimen/m3_shape_corners_full</item>
+        <item name="trackStopIndicatorSize">0dp</item>
+    </style>
+
+    <style name="Widget.Isai.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="marginLeftSystemWindowInsets">false</item>
+        <item name="marginRightSystemWindowInsets">false</item>
+        <item name="paddingBottomSystemWindowInsets">false</item>
+        <item name="paddingTopSystemWindowInsets">false</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Isai.BottomSheet</item>
+        <item name="shouldRemoveExpandedCorners">true</item>
+    </style>
+
+    <style name="ShapeAppearance.Isai.BottomSheet" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+        <!-- This is really badly off-spec, but is needed to nicely harmonize the corner radii in the playback bar -->
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="Widget.Isai.BottomSheet.Modal" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="marginLeftSystemWindowInsets">false</item>
+        <item name="marginRightSystemWindowInsets">false</item>
+        <item name="paddingBottomSystemWindowInsets">false</item>
+        <item name="paddingTopSystemWindowInsets">false</item>
+        <item name="shouldRemoveExpandedCorners">false</item>
+    </style>
+
+    <style name="Widget.Isai.BottomSheet.Dialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Isai.BottomSheet.Modal</item>
+        <item name="materialButtonStyle">@style/Widget.Isai.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.Isai.Button.TonalButton</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Isai.Button.OutlinedButton</item>
+        <item name="materialButtonElevatedStyle">@style/Widget.Isai.Button.ElevatedButton</item>
+        <item name="borderlessButtonStyle">@style/Widget.Isai.Button.TextButton</item>
+        <item name="snackbarButtonStyle">@style/Widget.Isai.Button.TextButton.Snackbar</item>
+        <item name="materialIconButtonStyle">@style/Widget.Isai.Button.Icon.Base</item>
+        <item name="materialIconButtonOutlinedStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Outlined
+        </item>
+        <item name="materialIconButtonFilledStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Filled
+        </item>
+        <item name="materialIconButtonFilledTonalStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Tonal
+        </item>
+        <item name="materialSplitButtonStyle">@style/Widget.Isai.SplitButton</item>
+        <item name="materialSplitButtonLeadingFilledStyle">
+            @style/Widget.Isai.SplitButton.LeadingButton.Filled
+        </item>
+        <item name="materialSplitButtonLeadingFilledTonalStyle">
+            @style/Widget.Isai.SplitButton.LeadingButton.Filled.Tonal
+        </item>
+        <item name="materialSplitButtonIconFilledStyle">
+            @style/Widget.Isai.SplitButton.IconButton.Filled
+        </item>
+        <item name="materialSplitButtonIconFilledTonalStyle">
+            @style/Widget.Isai.SplitButton.IconButton.Filled.Tonal
+        </item>
+        <item name="android:windowAnimationStyle">@style/Animation.Isai.BottomSheet.Dialog</item>
+    </style>
+
+    <style name="Animation.Isai.BottomSheet.Dialog" parent="Animation.Material3.BottomSheetDialog">
+        <item name="android:windowEnterAnimation">@anim/bottom_sheet_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/bottom_sheet_slide_out</item>
+    </style>
+
+    <style name="Widget.Isai.BottomSheet.Handle" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="Widget.Isai.MaterialButtonGroup" parent="Widget.Material3.MaterialButtonGroup">
+        <item name="buttonSizeChange">@xml/safe_button_group_size_change</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Widget.Isai.Image.Small" parent="">
+        <item name="android:layout_width">@dimen/size_touchable_small</item>
+        <item name="android:layout_height">@dimen/size_touchable_small</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item>
+        <item name="iconSize">@dimen/size_icon_small</item>
+    </style>
+
+    <style name="Widget.Isai.Image.Small.Circular" parent="">
+        <item name="android:layout_width">@dimen/size_touchable_small</item>
+        <item name="android:layout_height">@dimen/size_touchable_small</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+        <item name="iconSize">@dimen/size_icon_small</item>
+    </style>
+
+    <style name="Widget.Isai.Image.Medium" parent="">
+        <item name="android:layout_width">@dimen/size_touchable_medium</item>
+        <item name="android:layout_height">@dimen/size_touchable_medium</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Medium</item>
+        <item name="iconSize">@dimen/size_icon_medium</item>
+    </style>
+
+    <style name="Widget.Isai.Image.Medium.Circular" parent="">
+        <item name="android:layout_width">@dimen/size_touchable_medium</item>
+        <item name="android:layout_height">@dimen/size_touchable_medium</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+        <item name="iconSize">@dimen/size_icon_medium</item>
+    </style>
+
+    <style name="Widget.Isai.Image.MidLarge" parent="">
+        <item name="android:layout_width">@dimen/size_touchable_huge</item>
+        <item name="android:layout_height">@dimen/size_touchable_huge</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
+    </style>
+
+    <style name="Widget.Isai.Image.Large" parent="">
+        <item name="android:layout_width">@dimen/size_hero_small</item>
+        <item name="android:layout_height">@dimen/size_hero_small</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
+    </style>
+
+    <style name="Widget.Isai.Image.MidHuge" parent="">
+        <item name="android:layout_width">@dimen/size_hero_medium</item>
+        <item name="android:layout_height">@dimen/size_hero_medium</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
+    </style>
+
+    <style name="Widget.Isai.Image.Huge" parent="">
+        <item name="android:layout_width">@dimen/size_hero_large</item>
+        <item name="android:layout_height">@dimen/size_hero_large</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
+    </style>
+
+    <style name="Widget.Isai.Image.MidFull" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintDimensionRatio">1</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Large</item>
+    </style>
+
+    <style name="Widget.Isai.Image.Full" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintDimensionRatio">1</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
+    </style>
+
+    <style name="Widget.Isai.RecyclerView.Linear" parent="">
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+    </style>
+
+    <style name="Widget.Isai.RecyclerView.Grid.Base" parent="">
+        <item name="layoutManager">androidx.recyclerview.widget.GridLayoutManager</item>
+    </style>
+
+    <style name="Widget.Isai.RecyclerView.Grid" parent="Widget.Isai.RecyclerView.Grid.Base" />
+
+    <style name="Widget.Isai.RecyclerView.Grid.WithAdaptiveFab" parent="Widget.Isai.RecyclerView.Grid">
+        <item name="android:paddingBottom">@dimen/recycler_fab_space_normal</item>
+    </style>
+
+    <style name="Widget.Isai.DisableDropShadows" parent="">
+        <!-- API 28+ Only -->
+        <item name="android:outlineAmbientShadowColor" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
+        <item name="android:outlineSpotShadowColor" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
+    </style>
+
+    <style name="ThemeOverlay.Accent" parent="">
+        <item name="colorOnPrimary">?attr/colorSurface</item>
+    </style>
+
+    <!-- TEXTVIEW STYLES -->
+
+    <style name="Widget.Isai.TextView.Base" parent="Widget.AppCompat.TextView">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="emojiCompatEnabled">false</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Item.Base" parent="Widget.Isai.TextView.Base">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_marginStart">@dimen/spacing_medium</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Item.Primary" parent="Widget.Isai.TextView.Item.Base">
+        <item name="android:textAppearance">?attr/textAppearanceTitleMedium
+        </item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Item.Secondary" parent="Widget.Isai.TextView.Item.Base">
+        <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Primary" parent="Widget.Isai.TextView.Base">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:textAppearance">?attr/textAppearanceTitleLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Secondary.Base" parent="Widget.Isai.TextView.Base">
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Secondary.Ellipsize" parent="Widget.Isai.TextView.Secondary.Base">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+
+    </style>
+
+    <style name="Widget.Isai.TextView.Secondary.Marquee" parent="Widget.Isai.TextView.Secondary.Base">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Primary.Compact" parent="Widget.Isai.TextView.Base">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Secondary.Compact" parent="Widget.Isai.TextView.Base">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodySmall</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Header" parent="Widget.Isai.TextView.Base">
+        <item name="android:paddingStart">@dimen/spacing_medium</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="android:paddingEnd">@dimen/spacing_medium</item>
+        <item name="android:minHeight">@dimen/size_touchable_small</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Detail" parent="Widget.Isai.TextView.Base">
+        <item name="android:textAppearance">?attr/textAppearanceTitleLargeEmphasized</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Icon" parent="Widget.Isai.TextView.Base">
+        <item name="android:drawablePadding">@dimen/spacing_medium</item>
+        <item name="android:paddingTop">@dimen/spacing_mid_medium</item>
+        <item name="android:paddingStart">@dimen/spacing_medium</item>
+        <item name="android:paddingBottom">@dimen/spacing_mid_medium</item>
+        <item name="android:paddingEnd">@dimen/spacing_medium</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+    </style>
+
+    <style name="Widget.Isai.TextView.Icon.Clickable" parent="Widget.Isai.TextView.Icon">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- BUTTON STYLES -->
+
+    <style name="Widget.Isai.Button" parent="Widget.Material3Expressive.Button">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Button.TonalButton" parent="Widget.Material3Expressive.Button.TonalButton">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Button.OutlinedButton" parent="Widget.Material3Expressive.Button.OutlinedButton">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Button.ElevatedButton" parent="Widget.Material3Expressive.Button.ElevatedButton">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Button.TextButton" parent="Widget.Material3Expressive.Button.TextButton">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Button.TextButton.Dialog" parent="Widget.Material3Expressive.Button.TextButton.Dialog">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Button.TextButton.Dialog.Flush" parent="Widget.Material3Expressive.Button.TextButton.Dialog.Flush">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.Button.TextButton.Snackbar" parent="Widget.Material3Expressive.Button.TextButton.Snackbar">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.SplitButton" parent="Widget.Material3.MaterialSplitButton" />
+
+    <style name="Widget.Isai.SplitButton.LeadingButton.Filled" parent="Widget.Material3.SplitButton.LeadingButton.Filled">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.SplitButton.LeadingButton.Filled.Tonal" parent="Widget.Material3.SplitButton.LeadingButton.Filled.Tonal">
+        <item name="labelTextAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+        <item name="android:textAppearance">?attr/textAppearanceLabelLargeEmphasized</item>
+    </style>
+
+    <style name="Widget.Isai.SplitButton.IconButton.Filled" parent="Widget.Material3.SplitButton.IconButton.Filled" />
+
+    <style name="Widget.Isai.SplitButton.IconButton.Filled.Tonal" parent="Widget.Material3.SplitButton.IconButton.Filled.Tonal" />
+
+    <style name="Widget.Isai.Button.Primary" parent="Widget.Isai.Button">
+        <item name="iconGravity">textStart</item>
+        <item name="iconSize">@dimen/size_icon_small</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Secondary" parent="Widget.Isai.Button.TonalButton">
+        <item name="iconGravity">textStart</item>
+        <item name="iconSize">@dimen/size_icon_small</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Icon.Base" parent="Widget.Material3Expressive.Button.IconButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Isai.UncheckableIconButton</item>
+    </style>
+
+    <style name="ThemeOverlay.Isai.UncheckableIconButton" parent="">
+        <item name="colorContainer">@android:color/transparent</item>
+        <item name="colorOnContainer">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Icon.Small" parent="Widget.Isai.Button.Icon.Base">
+        <item name="iconSize">@dimen/size_icon_small</item>
+        <item name="android:minWidth">@dimen/size_touchable_small</item>
+        <item name="android:minHeight">@dimen/size_touchable_small</item>
+        <item name="android:insetTop">@dimen/spacing_tiny</item>
+        <item name="android:insetBottom">@dimen/spacing_tiny</item>
+        <item name="android:insetLeft">@dimen/spacing_tiny</item>
+        <item name="android:insetRight">@dimen/spacing_tiny</item>
+        <item name="android:paddingStart">@dimen/spacing_small</item>
+        <item name="android:paddingEnd">@dimen/spacing_small</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <!-- Intentional to prevent button from spamming the log console -->
+        <item name="iconTint" tools:ignore="PrivateResource">@color/m3_text_button_foreground_color_selector</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Icon.Medium" parent="Widget.Material3Expressive.Button.IconButton.Outlined">
+        <item name="iconSize">@dimen/size_icon_medium</item>
+        <item name="android:minWidth">@dimen/size_touchable_small</item>
+        <item name="android:minHeight">@dimen/size_touchable_small</item>
+        <item name="android:insetTop">@dimen/spacing_small</item>
+        <item name="android:insetBottom">@dimen/spacing_small</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:paddingStart">@dimen/spacing_small</item>
+        <item name="android:paddingEnd">@dimen/spacing_small</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="iconTint" tools:ignore="PrivateResource">@color/m3_text_button_foreground_color_selector</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Icon.Small.Primary" parent="Widget.Material3Expressive.Button.IconButton.Filled">
+        <item name="iconSize">@dimen/size_icon_small</item>
+        <item name="android:minWidth">@dimen/size_touchable_small</item>
+        <item name="android:minHeight">@dimen/size_touchable_small</item>
+        <item name="android:insetTop">@dimen/spacing_tiny</item>
+        <item name="android:insetBottom">@dimen/spacing_tiny</item>
+        <item name="android:insetLeft">@dimen/spacing_tiny</item>
+        <item name="android:insetRight">@dimen/spacing_tiny</item>
+        <item name="android:paddingStart">@dimen/spacing_small</item>
+        <item name="android:paddingEnd">@dimen/spacing_small</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Icon.Small.Secondary" parent="Widget.Material3Expressive.Button.IconButton.Tonal">
+        <item name="iconSize">@dimen/size_icon_small</item>
+        <item name="android:minWidth">@dimen/size_touchable_small</item>
+        <item name="android:minHeight">@dimen/size_touchable_small</item>
+        <item name="android:insetTop">@dimen/spacing_tiny</item>
+        <item name="android:insetBottom">@dimen/spacing_tiny</item>
+        <item name="android:insetLeft">@dimen/spacing_tiny</item>
+        <item name="android:insetRight">@dimen/spacing_tiny</item>
+        <item name="android:paddingStart">@dimen/spacing_small</item>
+        <item name="android:paddingEnd">@dimen/spacing_small</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+    </style>
+
+
+    <style name="ThemeOverlay.Isai.IconButton.Palette.Secondary" parent="">
+        <item name="colorContainer">?attr/colorSecondaryContainer</item>
+        <item name="colorOnContainer">?attr/colorOnSecondaryContainer</item>
+    </style>
+
+    <style name="ThemeOverlay.Isai.IconButton.Style.Small.Primary" parent="">
+        <item name="materialIconButtonStyle">@style/Widget.Isai.Button.Icon.Small.Primary</item>
+    </style>
+
+    <style name="ThemeOverlay.Isai.IconButton.Style.Small.Secondary" parent="">
+        <item name="materialIconButtonStyle">@style/Widget.Isai.Button.Icon.Small.Secondary</item>
+    </style>
+
+    <style name="Widget.Isai.Button.PlayPause" parent="Widget.Material3Expressive.Button.IconButton">
+        <item name="android:checkable">true</item>
+    </style>
+
+    <style name="Widget.Isai.Button.PlayPause.Secondary" parent="Widget.Material3Expressive.Button.IconButton">
+        <item name="backgroundTint">?attr/colorSecondary</item>
+        <item name="iconTint">?attr/colorOnSecondary</item>
+        <item name="android:checkable">true</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Playback.More" parent="Widget.Isai.Button.Icon.Base" />
+
+    <style name="Widget.Isai.Button.Playback.Toggle" parent="Widget.Material3Expressive.Button.IconButton.Outlined">
+        <item name="android:checkable">true</item>
+        <item name="toggleCheckedStateOnClick">false</item>
+        <item name="iconTint">@color/sel_checkable_icon</item>
+        <item name="strokeColor">@color/sel_checkable_outline</item>
+        <item name="backgroundTint">?attr/colorSurfaceContainerLow</item>
+    </style>
+
+    <style name="Widget.Isai.Button.Playback.Skip" parent="Widget.Material3Expressive.Button.IconButton.Tonal" />
+
+    <style name="Widget.Isai.Button.Playback.PlayPause" parent="Widget.Material3Expressive.Button.IconButton.Tonal">
+        <item name="android:checkable">true</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Isai.Button.PrimaryTonal</item>
+    </style>
+    <style name="ThemeOverlay.Isai.Button.PrimaryTonal" parent="">
+        <item name="colorContainer">?attr/colorPrimaryContainer</item>
+        <item name="colorContainerChecked">?attr/colorPrimary</item>
+        <item name="colorContainerUnchecked">?attr/colorPrimaryContainer</item>
+        <item name="colorOnContainer">?attr/colorOnPrimaryContainer</item>
+        <item name="colorOnContainerChecked">?attr/colorOnPrimary</item>
+        <item name="colorOnContainerUnchecked">?attr/colorOnPrimaryContainer</item>
+    </style>
+</resources>

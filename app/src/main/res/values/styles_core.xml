@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Master parent theme -->
+    <style name="Theme.Isai" parent="Theme.Material3Expressive.DynamicColors.DayNight" />
+    <!-- Adds nicer selector attributes not supported on lollipop -->
+    <style name="Theme.Isai.V23" parent="Theme.Isai" />
+    <!-- Handles edge-to-edge on other styles variants -->
+    <style name="Theme.Isai.V27" parent="Theme.Isai.V23">
+        <item name="android:statusBarColor">@color/chrome_translucent</item>
+        <item name="android:navigationBarColor">@color/chrome_translucent</item>
+    </style>
+    <!-- Adds fully transparent system bars -->
+    <style name="Theme.Isai.V29" parent="Theme.Isai.V27" />
+    <!-- Adds an animated splash screen. -->
+    <style name="Theme.Isai.V31" parent="Theme.Isai.V29" />
+
+    <!-- Base theme -->
+    <style name="Theme.Isai.Base" parent="Theme.Isai.V31">
+
+        <!-- Material configuration -->
+<!--        <item name="colorOutline">@color/overlay_stroke</item>-->
+        <item name="motionSpringFastSpatial">@style/Motion.Material3.Spring.Standard.Fast.Spatial</item>
+        <item name="motionSpringFastEffects">@style/Motion.Material3.Spring.Standard.Fast.Effects</item>
+        <item name="motionSpringDefaultSpatial">
+            @style/Motion.Material3.Spring.Standard.Default.Spatial
+        </item>
+        <item name="motionSpringDefaultEffects">
+            @style/Motion.Material3.Spring.Standard.Default.Effects
+        </item>
+        <item name="motionSpringSlowSpatial">@style/Motion.Material3.Spring.Standard.Slow.Spatial</item>
+        <item name="motionSpringSlowEffects">@style/Motion.Material3.Spring.Standard.Slow.Effects</item>
+        <item name="appBarLayoutStyle">@style/Widget.Isai.AppBarLayout</item>
+        <item name="toolbarStyle">@style/Widget.Isai.Toolbar</item>
+        <item name="tabStyle">@style/Widget.Isai.TabLayout</item>
+        <item name="tabSecondaryStyle">@style/Widget.Isai.TabLayout.Secondary</item>
+        <item name="materialButtonStyle">@style/Widget.Isai.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.Isai.Button.TonalButton</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Isai.Button.OutlinedButton</item>
+        <item name="materialButtonElevatedStyle">@style/Widget.Isai.Button.ElevatedButton</item>
+        <item name="borderlessButtonStyle">@style/Widget.Isai.Button.TextButton</item>
+        <item name="snackbarButtonStyle">@style/Widget.Isai.Button.TextButton.Snackbar</item>
+        <item name="materialIconButtonStyle">@style/Widget.Isai.Button.Icon.Base</item>
+        <item name="materialIconButtonOutlinedStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Outlined
+        </item>
+        <item name="materialIconButtonFilledStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Filled
+        </item>
+        <item name="materialIconButtonFilledTonalStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Tonal
+        </item>
+        <item name="materialSplitButtonStyle">@style/Widget.Isai.SplitButton</item>
+        <item name="materialSplitButtonLeadingFilledStyle">
+            @style/Widget.Isai.SplitButton.LeadingButton.Filled
+        </item>
+        <item name="materialSplitButtonLeadingFilledTonalStyle">
+            @style/Widget.Isai.SplitButton.LeadingButton.Filled.Tonal
+        </item>
+        <item name="materialSplitButtonIconFilledStyle">
+            @style/Widget.Isai.SplitButton.IconButton.Filled
+        </item>
+        <item name="materialSplitButtonIconFilledTonalStyle">
+            @style/Widget.Isai.SplitButton.IconButton.Filled.Tonal
+        </item>
+        <item name="materialAlertDialogTheme">@style/Theme.Isai.Dialog</item>
+        <item name="sliderStyle">@style/Widget.Isai.Slider</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.Isai.LinearProgressIndicator</item>
+        <item name="bottomSheetStyle">@style/Widget.Isai.BottomSheet</item>
+        <item name="bottomSheetDialogTheme">@style/Widget.Isai.BottomSheet.Dialog</item>
+        <item name="bottomSheetDragHandleStyle">@style/Widget.Isai.BottomSheet.Handle</item>
+
+        <!-- typography -->
+        <!-- some of it is non-standard because the default material typography isnt actually
+        using emphasized styles when they are supposed to, and it just looks bad. -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.Isai.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.Isai.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.Isai.DisplaySmall</item>
+        <item name="textAppearanceDisplayLargeEmphasized">@style/TextAppearance.Isai.DisplayLarge.Emphasized</item>
+        <item name="textAppearanceDisplayMediumEmphasized">@style/TextAppearance.Isai.DisplayMedium.Emphasized</item>
+        <item name="textAppearanceDisplaySmallEmphasized">@style/TextAppearance.Isai.DisplaySmall.Emphasized</item>
+
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Isai.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Isai.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Isai.HeadlineSmall</item>
+        <item name="textAppearanceHeadlineLargeEmphasized">@style/TextAppearance.Isai.HeadlineLarge.Emphasized</item>
+        <item name="textAppearanceHeadlineMediumEmphasized">@style/TextAppearance.Isai.HeadlineMedium.Emphasized</item>
+        <item name="textAppearanceHeadlineSmallEmphasized">@style/TextAppearance.Isai.HeadlineSmall.Emphasized</item>
+
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Isai.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Isai.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.Isai.TitleSmall</item>
+        <item name="textAppearanceTitleLargeEmphasized">@style/TextAppearance.Isai.TitleLarge.Emphasized</item>
+        <item name="textAppearanceTitleMediumEmphasized">@style/TextAppearance.Isai.TitleMedium.Emphasized</item>
+        <item name="textAppearanceTitleSmallEmphasized">@style/TextAppearance.Isai.TitleSmall.Emphasized</item>
+
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Isai.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Isai.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Isai.LabelSmall</item>
+        <item name="textAppearanceLabelLargeEmphasized">@style/TextAppearance.Isai.LabelLarge.Emphasized</item>
+        <item name="textAppearanceLabelMediumEmphasized">@style/TextAppearance.Isai.LabelMedium.Emphasized</item>
+        <item name="textAppearanceLabelSmallEmphasized">@style/TextAppearance.Isai.LabelSmall.Emphasized</item>
+
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Isai.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Isai.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Isai.BodySmall</item>
+        <item name="textAppearanceBodyLargeEmphasized">@style/TextAppearance.Isai.BodyLarge.Emphasized</item>
+        <item name="textAppearanceBodyMediumEmphasized">@style/TextAppearance.Isai.BodyMedium.Emphasized</item>
+        <item name="textAppearanceBodySmallEmphasized">@style/TextAppearance.Isai.BodySmall.Emphasized</item>
+
+        <!-- Fix dumb default android behavior -->
+        <item name="android:scrollbars">none</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorControlHighlight">@color/sel_compat_ripple</item>
+        <item name="colorControlNormal">?attr/colorOnSurfaceVariant</item>
+        <item name="colorControlActivated">?attr/colorPrimary</item>
+
+        <!-- Work around hard-coded text highlight colors in the default Material3 theme -->
+        <item name="android:textColorHighlight">@color/overlay_text_highlight</item>
+        <item name="android:textColorHighlightInverse">@color/overlay_text_highlight_inverse</item>
+
+        <item name="preferenceTheme">@style/PreferenceTheme.Isai</item>
+        <item name="preferenceStyle">@style/Preference.Isai</item>
+        <item name="preferenceCategoryStyle">@style/Preference.Isai.PreferenceCategory</item>
+        <item name="dialogPreferenceStyle">@style/Preference.Isai.DialogPreference</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.Isai.SwitchPreferenceCompat
+        </item>
+        <item name="materialButtonGroupStyle">@style/Widget.Isai.MaterialButtonGroup</item>
+    </style>
+
+    <!-- Make sure blue is the default style instead of material purple -->
+    <style name="Theme.Isai.App" parent="@style/Theme.Isai.Blue" />
+
+    <!--
+    Theming widgets is technically possible below Android 12, but I *really* don't care enough
+    to bother with it.
+    -->
+    <style name="Theme.Isai.Widget" parent="@style/Theme.Isai.Blue" />
+</resources>

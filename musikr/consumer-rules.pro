@@ -1,0 +1,9 @@
+-keep class com.muthupandi.musikr.metadata.NativeInputStream { *; }
+-keep class com.muthupandi.musikr.metadata.Metadata { *; }
+-keep class com.muthupandi.musikr.metadata.Properties { *; }
+-keep class com.muthupandi.musikr.metadata.NativeTagMap { *; }
+-keep class com.muthupandi.musikr.metadata.MetadataResult { *; }
+-keep class com.muthupandi.musikr.metadata.MetadataResult$Success { *; }
+-keep class com.muthupandi.musikr.metadata.MetadataResult$NoMetadata { *; }
+-keep class com.muthupandi.musikr.metadata.MetadataResult$NotAudio { *; }
+-keep class com.muthupandi.musikr.metadata.MetadataResult$ProviderFailed { *; }

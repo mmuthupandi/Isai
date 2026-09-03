@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- ANDROID COMPONENT-SPECIFIC STYLES.-->
+
+    <style name="Theme.Isai.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/TextStyle.Isai.Dialog</item>
+        <item name="android:checkedTextViewStyle">@style/Widget.Isai.Dialog.CheckedTextView</item>
+        <item name="materialButtonStyle">@style/Widget.Isai.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.Isai.Button.TonalButton</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Isai.Button.OutlinedButton</item>
+        <item name="materialButtonElevatedStyle">@style/Widget.Isai.Button.ElevatedButton</item>
+        <item name="borderlessButtonStyle">@style/Widget.Isai.Button.TextButton</item>
+        <item name="snackbarButtonStyle">@style/Widget.Isai.Button.TextButton.Snackbar</item>
+        <item name="materialIconButtonStyle">@style/Widget.Isai.Button.Icon.Base</item>
+        <item name="materialIconButtonOutlinedStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Outlined
+        </item>
+        <item name="materialIconButtonFilledStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Filled
+        </item>
+        <item name="materialIconButtonFilledTonalStyle">
+            @style/Widget.Material3Expressive.Button.IconButton.Tonal
+        </item>
+        <item name="materialSplitButtonStyle">@style/Widget.Isai.SplitButton</item>
+        <item name="materialSplitButtonLeadingFilledStyle">
+            @style/Widget.Isai.SplitButton.LeadingButton.Filled
+        </item>
+        <item name="materialSplitButtonLeadingFilledTonalStyle">
+            @style/Widget.Isai.SplitButton.LeadingButton.Filled.Tonal
+        </item>
+        <item name="materialSplitButtonIconFilledStyle">
+            @style/Widget.Isai.SplitButton.IconButton.Filled
+        </item>
+        <item name="materialSplitButtonIconFilledTonalStyle">
+            @style/Widget.Isai.SplitButton.IconButton.Filled.Tonal
+        </item>
+        <item name="buttonBarButtonStyle">@style/Widget.Isai.Button.TextButton.Dialog</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.Isai.Button.TextButton.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.Isai.Button.TextButton.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.Isai.Button.TextButton.Dialog.Flush</item>
+    </style>
+
+    <style name="TextStyle.Isai.Dialog" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">@style/TextAppearance.Isai.HeadlineSmall.Emphasized</item>
+    </style>
+
+    <!-- The style for the checked text view in the custom dialog -->
+    <style name="Widget.Isai.Dialog.CheckedTextView" parent="Widget.Material3.CheckedTextView">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <!-- Dialog style that properly implements dividers in a NestedScrollView -->
+    <style name="Widget.Isai.Dialog.NestedScrollView" parent="">
+        <item name="android:overScrollMode">never</item>
+        <item name="android:paddingTop">@dimen/spacing_medium</item>
+
+        <!-- API 23+ specific -->
+        <item name="android:scrollIndicators" tools:ignore="NewApi">top|bottom</item>
+    </style>
+
+    <style name="PreferenceTheme.Isai" parent="@style/PreferenceThemeOverlay">
+        <item name="android:layout">@layout/fragment_preferences</item>
+    </style>
+
+    <style name="Preference.Isai" parent="Preference.Material">
+        <item name="allowDividerBelow">false</item>
+        <item name="iconSpaceReserved">false</item>
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="Preference.Isai.DialogPreference" parent="Preference.DialogPreference.Material">
+        <item name="allowDividerBelow">false</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+
+    <style name="Preference.Isai.PreferenceCategory" parent="Preference.Category.Material">
+        <item name="layout">@layout/item_header</item>
+        <item name="allowDividerBelow">false</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+
+    <style name="Preference.Isai.SwitchPreferenceCompat" parent="Preference.SwitchPreferenceCompat.Material">
+        <item name="widgetLayout">@layout/view_preference_switch</item>
+        <item name="allowDividerBelow">false</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+
+    <!-- Widget TextView that mimics the main Isai Primary/Secondary TextViews. -->
+    <style name="Widget.Isai.TextView.AppWidget" parent="Widget.Isai.TextView.Base">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Widget TextView that mimics the main Isai Primary TextView -->
+    <style name="Widget.Isai.TextView.Primary.AppWidget" parent="Widget.Isai.TextView.AppWidget">
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleMedium</item>
+    </style>
+
+    <!-- Widget TextView that mimics the main Isai Secondary TextView -->
+    <style name="Widget.Isai.TextView.Secondary.AppWidget" parent="Widget.Isai.TextView.AppWidget">
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyMedium</item>
+    </style>
+
+    <!-- A variant of PlaybackButton that plays along with AppWidget restrictions. -->
+    <style name="Widget.Isai.MaterialButton.AppWidget" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:minHeight">@dimen/size_touchable_small</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- A variant of button that emulates a FAB-ish button that plays along with widget restrictions -->
+    <style name="Widget.Isai.MaterialButton.AppWidget.PlayPause" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:minWidth">@dimen/size_touchable_small</item>
+        <item name="android:background">@drawable/ui_remote_fab_container_paused</item>
+        <item name="android:tint">?attr/colorOnPrimary</item>
+    </style>
+</resources>

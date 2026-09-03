@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Isai.V31" parent="Theme.Isai.V29">
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="android:windowSplashScreenBackground">#FFFFFF</item>
+        <item name="android:windowSplashScreenAnimationDuration">600</item>
+    </style>
+
+    <!-- Use dynamic colors since that's assumed to be the setting used. -->
+    <style name="Theme.Isai.App" parent="Theme.Isai.Base" />
+
+    <style name="Theme.Isai.Widget" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="colorPrimary">?android:attr/colorAccent</item>
+        <item name="colorOnPrimary">?attr/colorSurface</item>
+
+        <item name="colorSurface">@color/widget_surface</item>
+        <item name="colorSurfaceInverse">@color/widget_surface_inverse</item>
+        <item name="colorOnSurfaceInverse">@color/widget_on_surface_inverse</item>
+
+        <item name="colorControlNormal">?android:attr/colorControlNormal</item>
+    </style>
+</resources>
