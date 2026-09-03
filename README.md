@@ -2,7 +2,8 @@
 <h1 align="center"><b>Isai</b></h1>
 <h4 align="center">
   <i>"செவிக்குண வில்லாத போழ்து சிறிது<br>
-  வயிற்றுக்கும் ஈயப் படும்."</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <sub>— குறள் 412</sub><br><br>
+  வயிற்றுக்கும் ஈயப் படும்."</i><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sub>— குறள் 412</sub><br><br>
   <i>(When there is no food for the ear, a little is given to the stomach.)</i>
 </h4>
 <p align="center">
