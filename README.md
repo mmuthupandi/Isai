@@ -1,4 +1,4 @@
-<p align="center"><img src="fastlane/metadata/android/en-US/images/icon.png" width="150"></p>
+<p align="center"><img src="app/src/main/res/mipmap-xxhdpi/ic_launcher.png" width="150"></p>
 <h1 align="center"><b>Isai</b></h1>
 <h4 align="center">A simple, rational music player for Android.</h4>
 <p align="center">
