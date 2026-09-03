@@ -28,6 +28,8 @@
 
 Isai is a local music player with a fast, reliable UI/UX without the many useless features present in other music players. Built off of modern media playback libraries, Isai has superior library support and listening quality compared to other apps that use outdated Android functionality. In short, **It plays music.**
 
+*Isai is a customized fork of the open-source [Auxio](https://github.com/OxygenCobalt/Auxio) music player, originally created by OxygenCobalt. We sincerely thank the original author and contributors for their incredible work.*
+
 **The default branch is the development version of the repository. For a stable version, see the master branch.**
 
 ## Screenshots
@@ -187,5 +189,7 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
+
+As a fork of [Auxio](https://github.com/OxygenCobalt/Auxio), Isai retains all original copyright notices within the source code to comply with the GPL v3.0 license. All new modifications are released under the same license terms.
 
 More information can be found [here](https://github.com/Muthupandi/Isai/wiki/Licenses).
